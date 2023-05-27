@@ -12,3 +12,25 @@
   max-width: 400px;
   width: 100%;
 }
+
+.carousel .item{
+  height: 300px;
+}
+.card-small {
+  /* Add styles to make the card smaller */
+  width: 200px;
+  height: 250px;
+}
+
+.card-image-small {
+  /* Add styles to make the image smaller */
+  width: 100px;
+  height: 100px;
+}
+
+.card-title-small {
+  /* Add styles to make the title smaller */
+  font-size: 14px;
+}
+
+

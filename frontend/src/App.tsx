@@ -7,26 +7,34 @@ function App() {
         <Navbar bg="dark" variant="dark" expand="lg">
           <Container>
             <Navbar.Brand>ThriftTrade</Navbar.Brand>
+            <Nav className="me-auto">
+            <Nav.Link href="/buy">Buy</Nav.Link>
+            <Nav.Link href="/sell">Sell</Nav.Link>
+          </Nav>
           </Container>
           <Nav>
             <a href="/cart" className="nav-link">
               Cart
             </a>
-            <a href="signin" className="nav-link">
+            <a href="/signin" className="nav-link">
               Sign In
             </a>
           </Nav>
         </Navbar>
       </header>
       <main>
-        <Container className="mt-3">
+        {/* <Container> */}
           <Outlet />
-        </Container>
+        {/* </Container> */}
       </main>
       <footer>
         <div className="text-center">All rights reserved</div>
       </footer>
     </div>
+
+
+    
+  
   )
 }
 
