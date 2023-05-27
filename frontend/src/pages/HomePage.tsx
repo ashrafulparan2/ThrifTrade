@@ -11,7 +11,7 @@ export default function HomePage() {
             <img
               id="t1"
               className="d-block w-100"
-              src="../../public/images/p1.jpg"
+              src="../../public/images/banner1.jpg"
               alt="First slide"
             />
           </div>
@@ -25,7 +25,7 @@ export default function HomePage() {
             <img
               id="t1"
               className="d-block w-100"
-              src="../../public/images/p2.jpg"
+              src="../../public/images/banner2.jpg"
               alt="First slide"
             />
           </div>
@@ -40,7 +40,7 @@ export default function HomePage() {
             <img
               id="t1"
               className="d-block w-100"
-              src="../../public/images/p3.jpg"
+              src="../../public/images/banner3.jpg"
               alt="First slide"
             />
           </div>
@@ -65,7 +65,7 @@ export default function HomePage() {
                   alt={product.name}
                   className="product-image"
                 />
-                <h2>{product.name}</h2>
+                <h2 class="product-name-font">{product.name}</h2>
                 <p>${product.price}</p>
               </Link>
             </Col>
