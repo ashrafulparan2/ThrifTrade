@@ -1,17 +1,35 @@
-import { Col, Row, Carousel, Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { sampleProducts } from "../data.js";
+import { Carousel, Container } from 'react-bootstrap'
 
-import {
-  FaShoppingCart,
-  FaRegBookmark,
-  FaStar,
-  FaFireAlt,
-} from "react-icons/fa";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-import "@splidejs/react-splide/css";
+import '@splidejs/react-splide/css'
+import { Link } from 'react-router-dom'
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react'
+
+// import Swiper styles
+import 'swiper/css'
+import 'swiper/css/pagination'
+
+// import 'swiper/components/pagination/pagination.min.css'
+import 'swiper/swiper.min.css'
+import './styles.css'
+
+import { sampleProducts } from '../data.js'
+
+// import required modules
+import { Pagination } from 'swiper'
 
 export default function HomePage() {
+  const swiperOptions = {
+    loop: true,
+    autoplay: {
+      delay: 200, // Change this value to adjust autoplay speed (in milliseconds)
+      disableOnInteraction: false,
+    },
+    pagination: {
+      clickable: true,
+    },
+  }
   return (
     <div>
       <Carousel className="carousel1">
@@ -64,59 +82,35 @@ export default function HomePage() {
       </Carousel>
 
       <Container className="mt-3">
-        <h3>Buy</h3>
-        <Row>
-          <Splide
-            options={{
-              rewind: true,
-              autoplay: true,
-              drag: "free",
-              gap: "1rem",
-              type: "loop",
-            }}
-          >
-            {sampleProducts.map((product) => (
-              <Col key={product.slug} sm={6} md={4} lg={3}>
-                <SplideSlide>
-                  <Link to={"/product/" + product.slug}>
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="product-image"
-                    />
-
-                    <h2 className="product-name-font">{product.name}</h2>
-                    <p>${product.price}</p>
-                  </Link>
-                </SplideSlide>
-              </Col>
-            ))}
-          </Splide>
-        </Row>
-      </Container>
-      <Container className="mt-3">
-        <h3>Sell</h3>
-        <Row>
-          <Splide options={{ rewind: true }}>
-            {sampleProducts.map((product) => (
-              <Col key={product.slug} sm={6} md={4} lg={3}>
-                <SplideSlide>
-                  <Link to={"/product/" + product.slug}>
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="product-image"
-                    />
-
-                    <h2 className="product-name-font">{product.name}</h2>
-                    <p>${product.price}</p>
-                  </Link>
-                </SplideSlide>
-              </Col>
-            ))}
-          </Splide>
-        </Row>
+        <h2>Buy</h2>
+        <Swiper
+          {...swiperOptions}
+          slidesPerView={4}
+          spaceBetween={30}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Pagination]}
+          className="mySwiper"
+        >
+          {sampleProducts.map((product) => (
+            <SwiperSlide>
+              <div className="productCard">
+                <Link to={'/product/' + product.slug}>
+                  <img
+                    className="productImage"
+                    src={product.image}
+                    alt={product.name}
+                    // className="product-image"
+                  />
+                  <h2>{product.name}</h2>
+                  <p>${product.price}</p>
+                </Link>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </Container>
     </div>
-  );
+  )
 }
