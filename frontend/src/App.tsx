@@ -26,7 +26,7 @@ function App() {
             <a href="/cart" className="nav-link">
               Cart
             </a>
-            <a href="/signin" className="nav-link">
+            <a href="/login" className="nav-link">
               Sign In
             </a>
           </Nav>

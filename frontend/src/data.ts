@@ -3,7 +3,7 @@ import { Product } from './types/Product.js'
 export const sampleProducts: Product[] = [
   {
     name: 'Nike Slim shirt',
-    slug: 'nike-slim-shirt',
+    slug: 'nike-slim-shirt5',
     category: 'Shirts',
     image: '../images/iphone-14.jpg',
     price: 120,
@@ -62,7 +62,7 @@ export const sampleProducts: Product[] = [
     description: 'high quality shirt',
   },{
     name: 'Nike Slim shirt',
-    slug: 'nike-slim-shirt',
+    slug: 'nike-slim-shirt2',
     category: 'Shirts',
     image: '../images/iphone-14.jpg',
     price: 120,
@@ -73,7 +73,7 @@ export const sampleProducts: Product[] = [
     description: 'high quality shirt',
   },{
     name: 'Nike Slim shirt',
-    slug: 'nike-slim-shirt',
+    slug: 'nike-slim-shirt3',
     category: 'Shirts',
     image: '../images/iphone-14.jpg',
     price: 120,
@@ -84,7 +84,7 @@ export const sampleProducts: Product[] = [
     description: 'high quality shirt',
   },
   {name: 'Nike Slim shirt',
-  slug: 'nike-slim-shirt',
+  slug: 'nike-slim-shirt4',
   category: 'Shirts',
   image: '../images/iphone-14.jpg',
   price: 120,
