@@ -4,7 +4,8 @@ import './signin.css'
 class Login extends PureComponent {
     render() {
         return (
-            <div>
+            <div className="bdy">
+                
                
             </div>
         );
