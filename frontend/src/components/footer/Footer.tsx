@@ -1,14 +1,29 @@
-import React from 'react';
-import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapMarkerAlt, faPhone, faEnvelope, faInfoCircle, faUser, faSignInAlt, faQuestionCircle, faBriefcase, faChartLine } from '@fortawesome/free-solid-svg-icons';
-import { FaPaypal, FaCcMastercard, FaCcVisa, FaCcAmex, FaCcDiscover } from 'react-icons/fa';
+import {
+  faBriefcase,
+  faChartLine,
+  faEnvelope,
+  faInfoCircle,
+  faMapMarkerAlt,
+  faPhone,
+  faQuestionCircle,
+  faSignInAlt,
+  faUser,
+} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  FaCcAmex,
+  FaCcDiscover,
+  FaCcMastercard,
+  FaCcVisa,
+  FaPaypal,
+} from 'react-icons/fa'
+import styled from 'styled-components'
 
 const FooterContainer = styled.footer`
   background-color: #131a22;
   padding: 20px;
   text-align: center;
-`;
+`
 
 const FooterText = styled.p`
   color: #fff;
@@ -17,31 +32,31 @@ const FooterText = styled.p`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-`;
+`
 
 const FooterIcon = styled(FontAwesomeIcon)`
   margin-right: 5px;
-`;
+`
 
 const FooterSection = styled.span`
   display: inline-flex;
   align-items: center;
   margin-right: 15px;
   margin-bottom: 10px;
-`;
+`
 
 const LogoContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
-`;
+`
 
 const Logo = styled.div`
   height: 30px;
   width: 30px;
   margin: 0 10px;
-`;
+`
 
 const FeedbackLink = styled.a`
   color: #fff;
@@ -50,7 +65,11 @@ const FeedbackLink = styled.a`
   &:hover {
     text-decoration: none;
   }
-`;
+`
+
+const WhiteText = styled.p`
+  color: white;
+`
 
 const Footer = () => {
   return (
@@ -111,11 +130,14 @@ const Footer = () => {
         </Logo>
         {/* Add more payment partner logos here */}
       </LogoContainer>
-      <h3>Make Money with Us</h3>
-      <p>Join our affiliate program and start earning today.</p>
+      <WhiteText>
+        {' '}
+        <h3>Make Money with Us</h3>
+        <p>Join our affiliate program and start earning today.</p>
+      </WhiteText>
       <FeedbackLink href="#">Give Feedback</FeedbackLink>
     </FooterContainer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer
