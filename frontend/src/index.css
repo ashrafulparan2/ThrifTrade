@@ -1,13 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=FontName&display=swap');
 
-
-.product-name-font
-{
-  font-size:16px;
+.product-name-font {
+  font-size: 16px;
 }
 :root {
-  
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -21,7 +17,7 @@
   width: 100%;
 }
 
-.carousel .item{
+.carousel .item {
   height: 400px;
 }
 .card-small {
@@ -41,13 +37,24 @@
   font-size: 14px;
 }
 
+/* Pricename change */
 
+.product-name {
+  font-size: 16px;
+  font-family: sans-serif;
+  color: black;
+}
 
+.product-price {
+  font-size: 14px;
+  font-family: sans-serif;
+  color: black;
+}
 
 /*New Card*/
-.productCard{
+.productCard {
   position: relative;
-  background-color: var(--color-grey-primary);
+  background-color: #fff;
   /* margin: 1rem; */
   flex: 1 0 25rem;
   max-width: 20rem;
@@ -55,12 +62,12 @@
   transition: 0.2s;
 }
 
-.productCard:hover{
+.productCard:hover {
   transform: translateY(-0.5rem);
   box-shadow: 0.5rem 0.75rem 1.5rem #bbbbbb;
 }
 
-.productImage{
+.productImage {
   margin-top: 2rem;
   max-width: 80%;
   height: auto;
@@ -69,7 +76,7 @@
   margin-right: auto;
 }
 
-.productCard__cart{
+.productCard__cart {
   position: absolute;
   right: 0;
   margin: 1rem;
@@ -78,7 +85,7 @@
   cursor: pointer;
 }
 
-.productCard__wishlist{
+.productCard__wishlist {
   position: absolute;
   right: 3rem;
   margin: 1rem;
@@ -99,42 +106,40 @@
   margin: 2rem;
 }
 
-.productName{
+.productName {
   font-size: 1.1rem;
 }
 
 .displayStack__1,
-.displayStack__2{
+.displayStack__2 {
   margin: 2rem 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.productPrice{
+.productPrice {
   font-size: 1 rem;
   font-weight: bold;
 }
 
 .productSales,
-.productTime{
+.productTime {
   font-size: 1rem;
 }
-.productList{
+.productList {
   display: flex;
   justify-content: space-evenly;
   margin-top: 5rem;
- 
 }
-.App{
+.App {
   display: grid;
   grid-template-columns: 350px 350px 350px;
   justify-content: center;
 }
 :root {
   --color-grey-primary: #f0f0f0;
-  --color-yellow-primary: goldenrod;   
+  --color-yellow-primary: goldenrod;
   --color-orange-primary: darkorange;
   --color-green-primary: mediumseagreen;
 }
-

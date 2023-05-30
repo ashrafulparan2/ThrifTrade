@@ -19,6 +19,8 @@ import { sampleProducts } from '../data.js'
 // import required modules
 import { Pagination } from 'swiper'
 
+import HomepageSell from './HomepageSell.js'
+
 export default function HomePage() {
   const swiperOptions = {
     loop: true,
@@ -38,13 +40,13 @@ export default function HomePage() {
             <img
               id="t1"
               className="d-block w-100"
-              src="../../public/images/banner4.jpg"
+              src="https://m.media-amazon.com/images/I/61DUO0NqyyL._SX3000_.jpg"
               alt="First slide"
             />
           </div>
           <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h3>Need Cash?</h3>
+            <p>Sell your products</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item interval={500}>
@@ -52,14 +54,14 @@ export default function HomePage() {
             <img
               id="t1"
               className="d-block w-100"
-              src="../../public/images/banner2.jpg"
+              src="https://m.media-amazon.com/images/I/61qa3132IFL._SX3000_.jpg"
               alt="First slide"
             />
           </div>
 
           <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>ThriftTrade is one click away</h3>
+            <p>Hurry Up!</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item interval={500}>
@@ -73,9 +75,9 @@ export default function HomePage() {
           </div>
 
           <Carousel.Caption>
-            <h3>Third slide label</h3>
+            <h3>Buy your gadgets</h3>
             <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              At low price!
             </p>
           </Carousel.Caption>
         </Carousel.Item>
@@ -103,14 +105,16 @@ export default function HomePage() {
                     alt={product.name}
                     // className="product-image"
                   />
-                  <h2>{product.name}</h2>
-                  <p>${product.price}</p>
+                  <h2 className="product-name">{product.name}</h2>
+                  <p className="product-price">${product.price}</p>
                 </Link>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
       </Container>
+      <HomepageSell />
+      
     </div>
   )
 }

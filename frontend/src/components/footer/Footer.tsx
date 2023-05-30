@@ -22,6 +22,7 @@ import styled from 'styled-components'
 const FooterContainer = styled.footer`
   background-color: #131a22;
   padding: 20px;
+  margin-top: 30px;
   text-align: center;
 `
 
@@ -77,7 +78,7 @@ const Footer = () => {
       <FooterText>
         <FooterSection>
           <FooterIcon icon={faMapMarkerAlt} />
-          1234 Amazon St, Seattle, WA
+          1234 ThriftTrade Headquarters, CUET
         </FooterSection>
         <FooterSection>
           <FooterIcon icon={faPhone} />

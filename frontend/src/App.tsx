@@ -11,6 +11,9 @@ function App() {
             <Nav className="me-auto">
               <Nav.Link href="/buy">Buy</Nav.Link>
               <Nav.Link href="/sell">Sell</Nav.Link>
+              <Nav.Link href="/offers">Offers</Nav.Link>
+              <Nav.Link href="/auction">Auction</Nav.Link>
+              <Nav.Link href="/catergories">Catergories</Nav.Link>
             </Nav>
             <Form className="d-flex">
             <Form.Control
