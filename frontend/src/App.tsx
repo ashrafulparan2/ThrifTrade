@@ -1,5 +1,6 @@
 import { Container, Nav, Navbar, Form ,Button} from "react-bootstrap";
 import { Outlet } from "react-router-dom";
+import Footer from './components/footer/Footer.js'
 function App() {
   return (
     <div className="d-flex flex-column vh-100">
@@ -37,9 +38,9 @@ function App() {
         <Outlet />
         {/* </Container> */}
       </main>
-      <footer>
-        <div className="text-center">All rights reserved</div>
-      </footer>
+      
+        <Footer/>
+      
     </div>
   );
 }
