@@ -21,7 +21,6 @@ import { sampleProducts } from '../data.js'
 import { Pagination } from 'swiper'
 
 import HomepageSell from './HomepageSell.js'
-
 export default function HomePage() {
   const swiperOptions = {
     loop: true,
