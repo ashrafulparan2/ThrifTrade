@@ -1,6 +1,7 @@
 import { Container, Nav, Navbar, Form ,Button} from "react-bootstrap";
 import { Outlet } from "react-router-dom";
 import Footer from './components/footer/Footer.js'
+import Anime from './components/animation/Anime.js'
 function App() {
   return (
     <div className="d-flex flex-column vh-100">
@@ -36,6 +37,7 @@ function App() {
           </Nav>
         </Navbar>
       </header>
+      
       <main>
         {/* <Container> */}
         <Outlet />

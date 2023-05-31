@@ -20,7 +20,7 @@ import { sampleProducts } from '../data.js'
 import { Pagination } from 'swiper'
 
 import HomepageSell from './HomepageSell.js'
-
+import Anime from '/myDrive/a/ThrifTrade/frontend/src/components/animation/Anime.js'
 export default function HomePage() {
   const swiperOptions = {
     loop: true,
@@ -84,6 +84,7 @@ export default function HomePage() {
       </Carousel>
 
       <Container className="mt-3">
+    
         <h2>Buy</h2>
         <Swiper
           {...swiperOptions}
@@ -112,9 +113,12 @@ export default function HomePage() {
             </SwiperSlide>
           ))}
         </Swiper>
+        
       </Container>
+      <Container>
       <HomepageSell />
       
+      </Container>
     </div>
   )
 }
