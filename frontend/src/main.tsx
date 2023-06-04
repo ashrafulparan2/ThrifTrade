@@ -16,10 +16,8 @@ import HomePage from './pages/HomePage.js'
 import Login from './pages/Login.js'
 import ProductPage from './pages/ProductPage.js'
 
-import axios from 'axios'
-
-axios.defaults.baseURL =
-  process.env.NODE_ENV === 'development' ? 'http://localhost:4000' : '/'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -32,10 +30,16 @@ const router = createBrowserRouter(
     </Route>
   )
 )
+
+const queryClient = new QueryClient()
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <HelmetProvider>
-      <RouterProvider router={router} />
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
     </HelmetProvider>
   </React.StrictMode>
 )
