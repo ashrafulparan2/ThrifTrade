@@ -14,13 +14,18 @@ import './index.css'
 import HomePage from './pages/HomePage'
 import ProductPage from './pages/ProductPage'
 import Login from './pages/Login'
-
+import Buy from './pages/buyFolder/Buy.js'
+import Sell from './pages/sellFolder/Sell.js'
+import About from './pages/AboutUs.js'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index={true} element={<HomePage />} />
       <Route path="product/:slug" element={<ProductPage />} />
       <Route path="login" element={<Login />} />
+      <Route path="buy" element={<Buy />} />
+      <Route path="sell" element={<Sell />} />
+      <Route path="about_us" element={<About />} />
       {/* <Route path="dashboard" element={<Dashboard />} /> */}
       {/* ... etc. */}
     </Route>
