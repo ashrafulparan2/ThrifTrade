@@ -12,9 +12,12 @@ import './index.css'
 
 import { HelmetProvider } from 'react-helmet-async'
 import './index.css'
-import HomePage from './pages/HomePage.js'
-import Login from './pages/Login.js'
-import ProductPage from './pages/ProductPage.js'
+import HomePage from './pages/HomePage'
+import ProductPage from './pages/ProductPage'
+import Login from './pages/Login'
+import Buy from './pages/buyFolder/Buy.js'
+import Sell from './pages/sellFolder/Sell.js'
+import About from './pages/AboutUs.js'
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
@@ -25,6 +28,9 @@ const router = createBrowserRouter(
       <Route index={true} element={<HomePage />} />
       <Route path="product/:slug" element={<ProductPage />} />
       <Route path="login" element={<Login />} />
+      <Route path="buy" element={<Buy />} />
+      <Route path="sell" element={<Sell />} />
+      <Route path="about_us" element={<About />} />
       {/* <Route path="dashboard" element={<Dashboard />} /> */}
       {/* ... etc. */}
     </Route>
