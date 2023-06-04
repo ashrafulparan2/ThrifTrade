@@ -44,7 +44,6 @@
   font-size: 16px;
   font-family: sans-serif;
   color: black;
- 
 }
 
 .product-price {
@@ -222,4 +221,8 @@
 }
 .no-underline:hover {
   color: #fff;
+}
+/* //product page */
+img.large {
+  max-width: 70%;
 }

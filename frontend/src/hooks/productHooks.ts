@@ -1,4 +1,4 @@
-import { useQueries } from '@tanstack/react-query'
+import { useQueries,useQuery } from '@tanstack/react-query'
 import apiClient from '../apiClient.js'
 import { Product } from '../types/Product.js'
 
@@ -16,4 +16,10 @@ export const useGetProductQueries = () =>
           (await apiClient.get<Product[]>(`api/productsell`)).data,
       },
     ],
+  })
+  export const useGetProductDetailsBySlugQuery = (slug: string) =>
+  useQuery({
+    queryKey: ['products', slug],
+    queryFn: async () =>
+      (await apiClient.get<Product>(`api/products/${slug}`)).data,
   })
