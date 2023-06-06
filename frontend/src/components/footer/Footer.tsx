@@ -65,6 +65,7 @@ const FeedbackLink = styled.a`
 
   &:hover {
     text-decoration: none;
+    color: #fff;
   }
 `
 
