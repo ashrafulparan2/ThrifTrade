@@ -25,9 +25,9 @@ class Login extends PureComponent {
         <Input type="password" placeholder="Password" />
       </InputContainer>
       <ButtonContainer>
-        <Button content="Sign Up" />
+        <Button content="Sign In" />
       </ButtonContainer>
-      <LoginWith>OR LOGIN WITH</LoginWith>
+      <LoginWith></LoginWith>
       <HorizontalRule />
      
       <ForgotPassword>Forgot Password ?</ForgotPassword>

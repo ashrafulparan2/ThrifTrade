@@ -17,6 +17,10 @@ import './styles.css'
 import { Pagination } from 'swiper'
 import ProductItemSell from '../components/ProductItemSell.js'
 import { useGetProductQueries } from '../hooks/productHooks.js'
+import LoadingBox from '../components/LoadingBox.js'
+import MessageBox from '../components/MessageBox.js'
+import { ApiError } from '../types/Apierror.js'
+import { getError } from '../utils.js'
 
 export default function HomepageSell() {
   {
@@ -33,7 +37,11 @@ export default function HomepageSell() {
 
     const { data: productsell, isLoading, error } = useGetProductQueries()[1]
 
-    return (
+    return isLoading ? (
+      <LoadingBox />
+    ) : error ? (
+      <MessageBox variant="danger">{getError(error as ApiError)}</MessageBox>
+    ) : (
       <div>
         <Container className="mt-3">
           <h2>Sell</h2>
