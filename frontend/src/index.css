@@ -226,3 +226,7 @@
 img.large {
   max-width: 70%;
 }
+.product_name_class
+{
+  text-decoration: none;
+}

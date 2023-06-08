@@ -7,6 +7,11 @@ const Login: React.FC = () => {
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
+  const [passwordconfirm, setConfirmPassword] = useState('');
+  const [passwordconfirmError, setConfirmPasswordError] = useState('');
+
+
+
   const validateEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
@@ -17,6 +22,9 @@ const Login: React.FC = () => {
 
     setEmailError('');
     setPasswordError('');
+
+    setConfirmPasswordError('');
+
 
     if (!email) {
       setEmailError('Email cannot be empty');
@@ -33,6 +41,13 @@ const Login: React.FC = () => {
       return;
     }
 
+    if(!(password===passwordconfirm))
+    {
+      setConfirmPasswordError('Password should be same');
+      return;
+    }
+
+
     // If all validations pass, you can proceed with the sign-in logic
     // For this example, let's just log the values
     console.log('Email:', email);
@@ -44,7 +59,9 @@ const Login: React.FC = () => {
     <h1>Sign In</h1>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="email">Email or mobile phone number</label>
+
+          <label htmlFor="email">Email </label>
+
           <input
             type="email"
             id="email"
@@ -65,8 +82,25 @@ const Login: React.FC = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+
+          {passwordconfirm && <div className="validation-feedback invalid">{passwordError}</div>}
+        </div>
+         {/* <div className="form-group">
+          <label htmlFor="passwordconfirm">Confirm Password</label>
+          <input
+            type="password"
+            id="passwordconfirm"
+            name="passwordconfirm"
+            value={passwordconfirm}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+          />
+          {passwordconfirm && <div className="validation-feedback invalid">{passwordconfirmError}</div>}
+        </div>  */}
+
           {passwordError && <div className="validation-feedback invalid">{passwordError}</div>}
         </div>
+
         <div className="form-group">
           <button type="submit" className="signin-button w-100 btncolor">Sign-In</button>
         </div>

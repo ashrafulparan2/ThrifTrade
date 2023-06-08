@@ -159,7 +159,9 @@ export default function HomePage() {
                 />
                 <div className="small-banner-content position-absolute">
                   <h4>NEW ARRIVAL</h4>
-                  <h5>Apple Watch 7</h5>
+
+                <h5>Apple Watch 7</h5>
+
                   <p>
                     From $999.00 <br /> or $41.62/mo.
                   </p>
@@ -179,15 +181,19 @@ export default function HomePage() {
                   </p>
                 </div>
               </div>
-              <div className="small-banner position-relative mt-3">
+
+              <div className="small-banner position-relative mt-3" >
+
                 <img
                   src="../../images/catbanner-04.jpg"
                   className="img-fluid rounded-3"
                   alt="main banner"
                 />
-                <div className="small-banner-content position-absolute">
+                <div className="small-banner-content position-absolute" >
                   <h4>NEW ARRIVAL</h4>
+
                   <h5>Airpods Max</h5>
+
                   <p>
                     From $999.00 <br /> or $41.62/mo.
                   </p>
