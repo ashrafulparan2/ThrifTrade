@@ -83,7 +83,7 @@ const Login: React.FC = () => {
             required
           />
 
-          {passwordconfirm && <div className="validation-feedback invalid">{passwordError}</div>}
+{passwordError && <div className="validation-feedback invalid">{passwordError}</div>}
         </div>
          {/* <div className="form-group">
           <label htmlFor="passwordconfirm">Confirm Password</label>
@@ -98,8 +98,7 @@ const Login: React.FC = () => {
           {passwordconfirm && <div className="validation-feedback invalid">{passwordconfirmError}</div>}
         </div>  */}
 
-          {passwordError && <div className="validation-feedback invalid">{passwordError}</div>}
-        </div>
+          
 
         <div className="form-group">
           <button type="submit" className="signin-button w-100 btncolor">Sign-In</button>

@@ -1,12 +1,12 @@
 import { Helmet } from 'react-helmet-async'
 import { Badge, Button, Card, Col, ListGroup, Row } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
-import LoadingBox from '../components/LoadingBox'
-import MessageBox from '../components/MessageBox'
-import Rating from '../components/Rating'
-import { useGetProductDetailsBySlugQuery } from '../hooks/productHooks'
-import { ApiError } from '../types/ApiError'
-import { getError } from '../utils'
+import LoadingBox from '../components/LoadingBox.js'
+import MessageBox from '../components/MessageBox.js'
+import Rating from '../components/Rating.js'
+import { useGetProductDetailsBySlugQuery } from '../hooks/productHooks.js'
+import { ApiError } from '../types/ApiError.js'
+import { getError } from '../utils.js'
 
 export default function ProductPage() {
   const params = useParams()

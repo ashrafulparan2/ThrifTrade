@@ -204,7 +204,7 @@ export default function HomePage() {
         </div>
       </Container>
 
-      <HomepageSell />
+      {/* <HomepageSell /> */}
 
       <Container className="marque-wrapper home-wrapper-2 py-5">
         <div className="row">
