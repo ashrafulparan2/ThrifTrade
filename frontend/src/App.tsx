@@ -7,7 +7,7 @@ function App() {
       <header>
         <Navbar bg="dark" variant="dark" expand="lg">
           <Container>
-            <Navbar.Brand>
+            <Navbar.Brand >
               <Link to={`/`} className="no-underline">
                 ThriftTrade
               </Link>
@@ -17,7 +17,7 @@ function App() {
               <Nav.Link href="/sell">Sell</Nav.Link>
               <Nav.Link href="/offers">Offers</Nav.Link>
               <Nav.Link href="/auction">Auction</Nav.Link>
-              <Nav.Link href="/catergories">Catergories</Nav.Link>
+              <Nav.Link href="/categories">Categories</Nav.Link>
               <Nav.Link href="/about_us">About Us</Nav.Link>
             </Nav>
             <Form className="d-flex">

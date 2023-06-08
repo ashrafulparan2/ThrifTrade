@@ -159,13 +159,13 @@ export default function HomePage() {
                 />
                 <div className="small-banner-content position-absolute">
                   <h4>NEW ARRIVAL</h4>
-                  <h5>But IPad Air</h5>
+                  <h5> Apple Watch</h5>
                   <p>
                     From $999.00 <br /> or $41.62/mo.
                   </p>
                 </div>
               </div>
-              <div className="small-banner position-relative ">
+              <div className="small-banner position-relative mt-3">
                 <img
                   src="../../public/images/catbanner-03.jpg"
                   className="img-fluid rounded-3"
@@ -173,21 +173,21 @@ export default function HomePage() {
                 />
                 <div className="small-banner-content position-absolute">
                   <h4>NEW ARRIVAL</h4>
-                  <h5>But IPad Air</h5>
+                  <h5>IPad Air</h5>
                   <p>
                     From $999.00 <br /> or $41.62/mo.
                   </p>
                 </div>
               </div>
-              <div className="small-banner position-relative ">
+              <div className="small-banner position-relative mt-3" >
                 <img
                   src="../../public/images/catbanner-04.jpg"
                   className="img-fluid rounded-3"
                   alt="main banner"
                 />
-                <div className="small-banner-content position-absolute">
+                <div className="small-banner-content position-absolute" >
                   <h4>NEW ARRIVAL</h4>
-                  <h5>But IPad Air</h5>
+                  <h5> Air Pods Max</h5>
                   <p>
                     From $999.00 <br /> or $41.62/mo.
                   </p>

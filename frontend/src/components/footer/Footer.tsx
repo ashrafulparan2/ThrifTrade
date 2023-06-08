@@ -72,6 +72,9 @@ const FeedbackLink = styled.a`
 const WhiteText = styled.p`
   color: white;
 `
+const RedText = styled.p`
+  color: red;
+`
 
 const Footer = () => {
   return (
@@ -83,11 +86,11 @@ const Footer = () => {
         </FooterSection>
         <FooterSection>
           <FooterIcon icon={faPhone} />
-          (555) 123-4567
+           123-4567
         </FooterSection>
         <FooterSection>
           <FooterIcon icon={faEnvelope} />
-          info@example.com
+          thrifttrade@gmail.com
         </FooterSection>
         <FooterSection>
           <FooterIcon icon={faInfoCircle} />
@@ -135,8 +138,11 @@ const Footer = () => {
       <WhiteText>
         {' '}
         <h3>Make Money with Us</h3>
+        
         <p>Join our affiliate program and start earning today.</p>
       </WhiteText>
+     
+      
       <FeedbackLink href="#">Give Feedback</FeedbackLink>
     </FooterContainer>
   )
