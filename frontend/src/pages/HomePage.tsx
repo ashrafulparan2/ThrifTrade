@@ -55,7 +55,7 @@ export default function HomePage() {
             <img
               id="t1"
               className="d-block w-100"
-              src="https://m.media-amazon.com/images/I/61DUO0NqyyL._SX3000_.jpg"
+              src="../../images/newbanner1.jpg"
               alt="First slide"
             />
           </div>
@@ -69,7 +69,7 @@ export default function HomePage() {
             <img
               id="t1"
               className="d-block w-100"
-              src="https://m.media-amazon.com/images/I/61qa3132IFL._SX3000_.jpg"
+              src="../../images/newbanner2.jpg"
               alt="First slide"
             />
           </div>
@@ -84,7 +84,7 @@ export default function HomePage() {
             <img
               id="t1"
               className="d-block w-100"
-              src="../../public/images/banner5.jpg"
+              src="../../images/banner5.jpg"
               alt="First slide"
             />
           </div>
@@ -121,7 +121,7 @@ export default function HomePage() {
           <div className="col-6">
             <div className="main-banner position-relative ">
               <img
-                src="../../public/images/main-banner-1.jpg"
+                src="../../images/main-banner-1.jpg"
                 className="img-fluid rounded-3"
                 alt="main banner"
               />
@@ -139,7 +139,7 @@ export default function HomePage() {
             <div className="d-flex flex-wrap gap-10 justify-content-between align-items-center">
               <div className="small-banner position-relative">
                 <img
-                  src="../../public/images/catbanner-01.jpg"
+                  src="../../images/catbanner-01.jpg"
                   className="img-fluid rounded-3"
                   alt="main banner"
                 />
@@ -153,41 +153,47 @@ export default function HomePage() {
               </div>
               <div className="small-banner position-relative">
                 <img
-                  src="../../public/images/catbanner-02.jpg"
+                  src="../../images/catbanner-02.jpg"
                   className="img-fluid rounded-3"
                   alt="main banner"
                 />
                 <div className="small-banner-content position-absolute">
                   <h4>NEW ARRIVAL</h4>
-                  <h5>But IPad Air</h5>
+
+                <h5>Apple Watch 7</h5>
+
                   <p>
                     From $999.00 <br /> or $41.62/mo.
                   </p>
                 </div>
               </div>
-              <div className="small-banner position-relative ">
+              <div className="small-banner position-relative mt-3">
                 <img
-                  src="../../public/images/catbanner-03.jpg"
+                  src="../../images/catbanner-03.jpg"
                   className="img-fluid rounded-3"
                   alt="main banner"
                 />
                 <div className="small-banner-content position-absolute">
                   <h4>NEW ARRIVAL</h4>
-                  <h5>But IPad Air</h5>
+                  <h5>IPad Air</h5>
                   <p>
                     From $999.00 <br /> or $41.62/mo.
                   </p>
                 </div>
               </div>
-              <div className="small-banner position-relative ">
+
+              <div className="small-banner position-relative mt-3" >
+
                 <img
-                  src="../../public/images/catbanner-04.jpg"
+                  src="../../images/catbanner-04.jpg"
                   className="img-fluid rounded-3"
                   alt="main banner"
                 />
-                <div className="small-banner-content position-absolute">
+                <div className="small-banner-content position-absolute" >
                   <h4>NEW ARRIVAL</h4>
-                  <h5>But IPad Air</h5>
+
+                  <h5>Airpods Max</h5>
+
                   <p>
                     From $999.00 <br /> or $41.62/mo.
                   </p>
@@ -206,28 +212,28 @@ export default function HomePage() {
             <div className="marquee-inner-wrapper card-wrapper">
               <Marquee className="d-flex">
                 <div className="mx-4 w-25">
-                  <img src="../../public/images/brand-01.png" alt="brand" />
+                  <img src="../../images/brand-01.png" alt="brand" />
                 </div>
                 <div className="mx-4 w-25">
-                  <img src="../../public/images/brand-02.png" alt="brand" />
+                  <img src="../../images/brand-02.png" alt="brand" />
                 </div>
                 <div className="mx-4 w-25">
-                  <img src="../../public/images/brand-03.png" alt="brand" />
+                  <img src="../../images/brand-03.png" alt="brand" />
                 </div>
                 <div className="mx-4 w-25">
-                  <img src="../../public/images/brand-04.png" alt="brand" />
+                  <img src="../../images/brand-04.png" alt="brand" />
                 </div>
                 <div className="mx-4 w-25">
-                  <img src="../../public/images/brand-05.png" alt="brand" />
+                  <img src="../../images/brand-05.png" alt="brand" />
                 </div>
                 <div className="mx-4 w-25">
-                  <img src="../../public/images/brand-06.png" alt="brand" />
+                  <img src="../../images/brand-06.png" alt="brand" />
                 </div>
                 <div className="mx-4 w-25">
-                  <img src="../../public/images/brand-07.png" alt="brand" />
+                  <img src="../../images/brand-07.png" alt="brand" />
                 </div>
                 <div className="mx-4 w-25">
-                  <img src="../../public/images/brand-08.png" alt="brand" />
+                  <img src="../../images/brand-08.png" alt="brand" />
                 </div>
               </Marquee>
             </div>

@@ -10,7 +10,7 @@ function ProductItem({ product }: { product: Product }) {
         <img src={product.image} className="card-img-top" alt={product.name} />
       </Link>
       <Card.Body>
-        <Link to={`/product/${product.slug}`}>
+        <Link className="product_name_class" to={`/product/${product.slug}`}>
           <Card.Title className="product-name">{product.name}</Card.Title>
         </Link>
         <Rating rating={product.rating} numReviews={product.numReviews} />
@@ -20,6 +20,7 @@ function ProductItem({ product }: { product: Product }) {
             Out of stock
           </Button>
         ) : (
+          
           <Button>Add to cart</Button>
         )}
       </Card.Body>

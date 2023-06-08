@@ -6,8 +6,10 @@ const Login: React.FC = () => {
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
+
   const [passwordconfirm, setConfirmPassword] = useState('');
   const [passwordconfirmError, setConfirmPasswordError] = useState('');
+
 
 
   const validateEmail = (email: string): boolean => {
@@ -20,7 +22,9 @@ const Login: React.FC = () => {
 
     setEmailError('');
     setPasswordError('');
+
     setConfirmPasswordError('');
+
 
     if (!email) {
       setEmailError('Email cannot be empty');
@@ -36,11 +40,13 @@ const Login: React.FC = () => {
       setPasswordError('Password cannot be empty');
       return;
     }
+
     if(!(password===passwordconfirm))
     {
       setConfirmPasswordError('Password should be same');
       return;
     }
+
 
     // If all validations pass, you can proceed with the sign-in logic
     // For this example, let's just log the values
@@ -53,7 +59,9 @@ const Login: React.FC = () => {
     <h1>Sign In</h1>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
+
           <label htmlFor="email">Email </label>
+
           <input
             type="email"
             id="email"
@@ -74,7 +82,8 @@ const Login: React.FC = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          {passwordError && <div className="validation-feedback invalid">{passwordError}</div>}
+
+          {passwordconfirm && <div className="validation-feedback invalid">{passwordError}</div>}
         </div>
          {/* <div className="form-group">
           <label htmlFor="passwordconfirm">Confirm Password</label>
@@ -88,6 +97,10 @@ const Login: React.FC = () => {
           />
           {passwordconfirm && <div className="validation-feedback invalid">{passwordconfirmError}</div>}
         </div>  */}
+
+          {passwordError && <div className="validation-feedback invalid">{passwordError}</div>}
+        </div>
+
         <div className="form-group">
           <button type="submit" className="signin-button w-100 btncolor">Sign-In</button>
         </div>
