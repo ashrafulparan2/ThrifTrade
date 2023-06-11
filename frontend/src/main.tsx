@@ -21,13 +21,16 @@ import About from "./pages/AboutUs.js";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { StoreProvider } from "./Store.js";
+import CartPage from "./pages/CartPage.js";
+// import {CartPage} from './pages/CartPage.js';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index={true} element={<HomePage />} />
       <Route path="product/:slug" element={<ProductPage />} />
-      <Route path="login" element={<Login />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="cart" element={<CartPage />} />
       {/* <Route path="buy" element={<Buy />} /> */}
       {/* <Route path="sell" element={<Sell />} /> */}
       {/* <Route path="about_us" element={<About />} /> */}

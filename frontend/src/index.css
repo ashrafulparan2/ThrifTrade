@@ -230,3 +230,10 @@ img.large {
 {
   text-decoration: none;
 }
+/*Cart Page CSS */
+img.large {
+  max-width: 100%;
+}
+img.thumbnail {
+  height: 80px;
+}
