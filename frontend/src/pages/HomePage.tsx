@@ -109,7 +109,7 @@ export default function HomePage() {
           className="mySwiper"
         >
           {products!.map((product) => (
-            <SwiperSlide>
+            <SwiperSlide key={product._id}>
               <ProductItem product={product} />
             </SwiperSlide>
           ))}

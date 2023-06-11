@@ -1,25 +1,26 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import "bootstrap/dist/css/bootstrap.min.css";
+import React from "react";
+import ReactDOM from "react-dom/client";
 import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
   RouterProvider,
-} from 'react-router-dom'
-import App from './App.js'
-import './index.css'
+} from "react-router-dom";
+import App from "./App.js";
+import "./index.css";
 
-import { HelmetProvider } from 'react-helmet-async'
-import './index.css'
-import HomePage from './pages/HomePage.js'
-import ProductPage from './pages/ProductPage.js'
-import Login from './pages/Login.js'
-import Buy from './pages/buyFolder/Buy.js'
-import About from './pages/AboutUs.js'
+import { HelmetProvider } from "react-helmet-async";
+import "./index.css";
+import HomePage from "./pages/HomePage.js";
+import ProductPage from "./pages/ProductPage.js";
+import Login from "./pages/Login.js";
+import Buy from "./pages/buyFolder/Buy.js";
+import About from "./pages/AboutUs.js";
 
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { StoreProvider } from "./Store.js";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -34,17 +35,19 @@ const router = createBrowserRouter(
       {/* ... etc. */}
     </Route>
   )
-)
+);
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient();
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <HelmetProvider>
-      <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
-        <ReactQueryDevtools initialIsOpen={false} />
-      </QueryClientProvider>
-    </HelmetProvider>
+    <StoreProvider>
+      <HelmetProvider>
+        <QueryClientProvider client={queryClient}>
+          <RouterProvider router={router} />
+          <ReactQueryDevtools initialIsOpen={false} />
+        </QueryClientProvider>
+      </HelmetProvider>
+    </StoreProvider>
   </React.StrictMode>
-)
+);

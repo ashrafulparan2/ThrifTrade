@@ -1,9 +1,32 @@
-import { Button, Container, Form, Nav, Navbar } from 'react-bootstrap'
+import { Button,Badge, Container, Form, Nav, Navbar } from 'react-bootstrap'
 import { Link, Outlet } from 'react-router-dom'
 import Footer from './components/footer/Footer.js'
+import { useContext, useEffect } from 'react'
+import { Store } from './Store.js'
+import { LinkContainer } from 'react-router-bootstrap'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
 function App() {
+
+  const {
+     
+    state: { mode, cart },
+    dispatch,
+  } = useContext(Store)
+
+  useEffect(() => {
+    document.body.setAttribute('data-bs-theme', mode)
+  }, [mode])
+  const switchModeHandler = () => {
+    dispatch({ type: 'SWITCH_MODE' })
+  }
+
   return (
+   
+
     <div className="d-flex flex-column vh-100">
+      <ToastContainer position="bottom-center" limit={1} />
       <header>
         <Navbar bg="dark" variant="dark" expand="lg">
           <Container>
@@ -35,9 +58,18 @@ function App() {
           </Container>
 
           <Nav>
-            <a href="/cart" className="nav-link">
+          <Link to="/cart" className="nav-link">
               Cart
-            </a>
+          
+              {cart.cartItems.length > 0 && (
+                <Badge pill bg="danger">
+                  {cart.cartItems.reduce((a, c) => a + c.quantity, 0)
+                 
+                  }
+                 
+                </Badge>
+              )}
+            </Link>
             <a href="/login" className="nav-link">
               Sign In
             </a>
