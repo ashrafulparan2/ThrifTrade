@@ -35,6 +35,7 @@ const initialState: AppState = {
 type Action =
   | { type: "SWITCH_MODE" }
   | { type: "CART_ADD_ITEM"; payload: CartItem }
+  | { type: 'CART_REMOVE_ITEM'; payload: CartItem }
   | { type: "UPDATE_SHIPPING_ADDRESS"; payload: Cart["shippingAddress"] };
 
 // Define the reducer function
@@ -62,6 +63,14 @@ function reducer(state: AppState, action: Action): AppState {
 
       return { ...state, cart: { ...state.cart, cartItems } };
     }
+    case 'CART_REMOVE_ITEM': {
+      const cartItems = state.cart.cartItems.filter(
+        (item: CartItem) => item._id !== action.payload._id
+      )
+      localStorage.setItem('cartItems', JSON.stringify(cartItems))
+      return { ...state, cart: { ...state.cart, cartItems } }
+    }
+
     case "UPDATE_SHIPPING_ADDRESS": {
       const shippingAddress = action.payload;
 
@@ -70,8 +79,8 @@ function reducer(state: AppState, action: Action): AppState {
       return {
         ...state,
         cart: { ...state.cart, shippingAddress },
-      };
-    }
+      }
+      }
     default:
       return state;
   }
