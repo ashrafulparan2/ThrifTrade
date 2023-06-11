@@ -1,4 +1,6 @@
-import { Product } from './types/Product'
+import bcrypt from 'bcryptjs'
+import { Product } from './models/productModel'
+import { User } from './models/userModel'
 
 export const sampleProducts: Product[] = [
   {
@@ -53,29 +55,34 @@ export const sampleProducts: Product[] = [
     name: 'Realme K50i',
     slug: 'realme-k50i',
     category: 'Phone',
-    image: 'https://d3qqewlrl1nyfn.cloudfront.net/product/16849971621695332849.webp',
+    image:
+      'https://d3qqewlrl1nyfn.cloudfront.net/product/16849971621695332849.webp',
     price: 120,
     countInStock: 10,
     brand: 'Realme',
     rating: 4.5,
     numReviews: 10,
     description: 'high quality shirt',
-  },{
+  },
+  {
     name: 'Iphone 11',
     slug: 'iphone-11',
     category: 'Phone',
-    image: 'https://d3qqewlrl1nyfn.cloudfront.net/product/16849136951738361931.webp',
+    image:
+      'https://d3qqewlrl1nyfn.cloudfront.net/product/16849136951738361931.webp',
     price: 120,
     countInStock: 10,
     brand: 'Apple',
     rating: 4.5,
     numReviews: 10,
     description: 'high quality shirt',
-  },{
+  },
+  {
     name: 'Vivo T1 Pro',
     slug: 'vivo-t1-pro',
     category: 'Phone',
-    image: 'https://d3qqewlrl1nyfn.cloudfront.net/product/1685007783452594201.webp',
+    image:
+      'https://d3qqewlrl1nyfn.cloudfront.net/product/1685007783452594201.webp',
     price: 120,
     countInStock: 10,
     brand: 'Vivo',
@@ -83,15 +90,31 @@ export const sampleProducts: Product[] = [
     numReviews: 10,
     description: 'high quality shirt',
   },
-  {name: 'Acer aspire N17C4',
-  slug: 'acer-aspire-n17c4',
-  category: 'Laptop',
-  image: 'https://d3qqewlrl1nyfn.cloudfront.net/product/1685023305471472481.webp',
-  price: 120,
-  countInStock: 10,
-  brand: 'Acer',
-  rating: 4.5,
-  numReviews: 10,
-  description: 'high quality shirt',
-},
+  {
+    name: 'Acer aspire N17C4',
+    slug: 'acer-aspire-n17c4',
+    category: 'Laptop',
+    image:
+      'https://d3qqewlrl1nyfn.cloudfront.net/product/1685023305471472481.webp',
+    price: 120,
+    countInStock: 10,
+    brand: 'Acer',
+    rating: 4.5,
+    numReviews: 10,
+    description: 'high quality shirt',
+  },
+]
+export const sampleUsers: User[] = [
+  {
+    name: 'Joe',
+    email: 'admin@example.com',
+    password: bcrypt.hashSync('123456'),
+    isAdmin: true,
+  },
+  {
+    name: 'John',
+    email: 'user@example.com',
+    password: bcrypt.hashSync('123456'),
+    isAdmin: false,
+  },
 ]
