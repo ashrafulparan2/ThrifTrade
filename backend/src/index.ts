@@ -9,7 +9,7 @@ import { userRouter } from './routers/userRouter'
 dotenv.config()
 
 const MONGODB_URI =
-  process.env.MONGODB_URI || 'mongodb://localhost/tsmernamazonadb'
+  process.env.MONGODB_URI || 'mongodb://localhost/thrifttradedb'
 mongoose.set('strictQuery', true)
 mongoose
   .connect(MONGODB_URI)
