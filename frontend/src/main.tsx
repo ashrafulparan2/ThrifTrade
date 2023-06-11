@@ -31,7 +31,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<App />}>
       <Route index={true} element={<HomePage />} />
       <Route path="product/:slug" element={<ProductPage />} />
-      <Route path="/login" element={<SigninPage />} />
+      <Route path="/signin" element={<SigninPage />} />
       <Route path="cart" element={<CartPage />} />
       {/* <Route path="buy" element={<Buy />} /> */}
       <Route path="sell" element={<Sell />} />
