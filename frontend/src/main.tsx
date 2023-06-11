@@ -23,6 +23,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { StoreProvider } from "./Store.js";
 import CartPage from "./pages/CartPage.js";
 import Sell from "./pages/Sell.js";
+import SigninPage from "./pages/SignInPage.js";
 // import {CartPage} from './pages/CartPage.js';
 
 const router = createBrowserRouter(
@@ -30,7 +31,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<App />}>
       <Route index={true} element={<HomePage />} />
       <Route path="product/:slug" element={<ProductPage />} />
-      <Route path="/login" element={<Login />} />
+      <Route path="/login" element={<SigninPage />} />
       <Route path="cart" element={<CartPage />} />
       {/* <Route path="buy" element={<Buy />} /> */}
       <Route path="sell" element={<Sell />} />
