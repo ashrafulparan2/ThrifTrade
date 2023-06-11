@@ -237,3 +237,6 @@ img.large {
 img.thumbnail {
   height: 80px;
 }
+.cartSpanning{
+  padding-right: 4px;
+}
