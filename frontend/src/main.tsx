@@ -24,6 +24,7 @@ import { StoreProvider } from "./Store.js";
 import CartPage from "./pages/CartPage.js";
 import Sell from "./pages/Sell.js";
 import SigninPage from "./pages/SignInPage.js";
+import SignupPage from './pages/SignupPage.js'
 // import {CartPage} from './pages/CartPage.js';
 
 const router = createBrowserRouter(
@@ -32,6 +33,7 @@ const router = createBrowserRouter(
       <Route index={true} element={<HomePage />} />
       <Route path="product/:slug" element={<ProductPage />} />
       <Route path="/signin" element={<SigninPage />} />
+      <Route path="signup" element={<SignupPage />} />
       <Route path="cart" element={<CartPage />} />
       {/* <Route path="buy" element={<Buy />} /> */}
       <Route path="sell" element={<Sell />} />
