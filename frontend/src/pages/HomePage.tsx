@@ -1,4 +1,4 @@
-import { Button, Carousel, Container } from 'react-bootstrap'
+import { Button, Carousel, Container,Accordion,Badge } from 'react-bootstrap'
 
 import Marquee from 'react-fast-marquee'
 
@@ -202,9 +202,18 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+
+      </Container>
+      <Container>
+      <h1>
+        Need Cash? 
+        <Link to="/Sell" className="sell-link"><Badge bg="secondary">Sell Your Products</Badge>
+        </Link>
+      </h1>
       </Container>
 
       {/* <HomepageSell /> */}
+      
 
       <Container className="marque-wrapper home-wrapper-2 py-5">
         <div className="row">
