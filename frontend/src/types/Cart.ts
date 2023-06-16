@@ -7,13 +7,15 @@ export type CartItem = {
     _id: string
     name: string
   }
+ 
   
-  export type ShippingAddress = {
+ export type ShippingAddress = {
     fullName: string
     address: string
     city: string
     country: string
     postalCode: string
+    location: Location
   }
   
   export type Cart = {

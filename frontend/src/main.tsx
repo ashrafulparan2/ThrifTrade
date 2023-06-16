@@ -14,9 +14,9 @@ import { HelmetProvider } from "react-helmet-async";
 import "./index.css";
 import HomePage from "./pages/HomePage.js";
 import ProductPage from "./pages/ProductPage.js";
-import Login from "./pages/Login.js";
-import Buy from "./pages/buyFolder/Buy.js";
-import About from "./pages/AboutUs.js";
+// import Login from "./pages/Login.js";
+// import Buy from "./pages/buyFolder/Buy.js";
+// import About from "./pages/AboutUs.js";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
@@ -25,6 +25,8 @@ import CartPage from "./pages/CartPage.js";
 import Sell from "./pages/Sell.js";
 import SigninPage from "./pages/SignInPage.js";
 import SignupPage from './pages/SignupPage.js'
+import ShippingAddressPage from "./pages/ShippingAddressPage.js";
+import PaymentMethodPage from "./pages/PaymentMethodPage.js";
 // import {CartPage} from './pages/CartPage.js';
 
 const router = createBrowserRouter(
@@ -37,6 +39,8 @@ const router = createBrowserRouter(
       <Route path="cart" element={<CartPage />} />
       {/* <Route path="buy" element={<Buy />} /> */}
       <Route path="sell" element={<Sell />} />
+      <Route path="shipping" element={<ShippingAddressPage />} />
+      <Route path="payment" element={<PaymentMethodPage />} />
       {/* <Route path="about_us" element={<About />} /> */}
       {/* <Route path="dashboard" element={<Dashboard />} /> */}
       {/* ... etc. */}
