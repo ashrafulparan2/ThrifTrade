@@ -90,7 +90,7 @@ const SellPage = () => {
             />
           </Form.Group>
           <Form.Group controlId="address">
-            <Form.Label>Address</Form.Label>
+            <Form.Label >Address</Form.Label>
             <Row>
               <Col sm={6}>
                 <Form.Control

@@ -34,7 +34,9 @@ export default function ProductPage() {
       type: 'CART_ADD_ITEM',
       payload: { ...convertProductToCartItem(product!), quantity },
     })
-    toast.success('Product added to the cart')
+    toast.success('Product added to the cart',{
+      autoClose: 1000,
+    })
     navigate('/cart')
   }
 
