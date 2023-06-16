@@ -31,7 +31,9 @@ function ProductItem({ product }: { product: Product }) {
       type: "CART_ADD_ITEM",
       payload: { ...item, quantity },
     });
-    toast.success("Product added to the cart");
+    toast.success("Product added to the cart",{
+      autoClose: 1000,
+    })
   };
 
   return (
