@@ -29,6 +29,7 @@ import ShippingAddressPage from "./pages/ShippingAddressPage.js";
 import PaymentMethodPage from "./pages/PaymentMethodPage.js";
 import ProtectedRoute from "./components/ProtectedRoute.js";
 import PlaceOrderPage from './pages/PlaceOrderPage.js'
+import OrderPage from './pages/OrderPage.js'
 // import {CartPage} from './pages/CartPage.js';
 
 const router = createBrowserRouter(
@@ -46,6 +47,7 @@ const router = createBrowserRouter(
         <Route path="payment" element={<PaymentMethodPage />} />
         <Route path="placeorder" element={<PlaceOrderPage />} />
       </Route>
+      <Route path="/order/:id" element={<OrderPage />} />
 
       {/* <Route path="about_us" element={<About />} /> */}
       {/* <Route path="dashboard" element={<Dashboard />} /> */}
