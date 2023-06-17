@@ -27,6 +27,8 @@ import SigninPage from "./pages/SignInPage.js";
 import SignupPage from './pages/SignupPage.js'
 import ShippingAddressPage from "./pages/ShippingAddressPage.js";
 import PaymentMethodPage from "./pages/PaymentMethodPage.js";
+import ProtectedRoute from "./components/ProtectedRoute.js";
+import PlaceOrderPage from './pages/PlaceOrderPage.js'
 // import {CartPage} from './pages/CartPage.js';
 
 const router = createBrowserRouter(
@@ -39,8 +41,12 @@ const router = createBrowserRouter(
       <Route path="cart" element={<CartPage />} />
       {/* <Route path="buy" element={<Buy />} /> */}
       <Route path="sell" element={<Sell />} />
-      <Route path="shipping" element={<ShippingAddressPage />} />
-      <Route path="payment" element={<PaymentMethodPage />} />
+      <Route path="" element={<ProtectedRoute />}>
+        <Route path="shipping" element={<ShippingAddressPage />} />
+        <Route path="payment" element={<PaymentMethodPage />} />
+        <Route path="placeorder" element={<PlaceOrderPage />} />
+      </Route>
+
       {/* <Route path="about_us" element={<About />} /> */}
       {/* <Route path="dashboard" element={<Dashboard />} /> */}
       {/* ... etc. */}
