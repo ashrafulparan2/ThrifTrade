@@ -33,6 +33,9 @@ export default function CartPage() {
   }
   const removeItemHandler = (item: CartItem) => {
     dispatch({ type: 'CART_REMOVE_ITEM', payload: item })
+    toast.warn('Item Has been removed',{
+      autoClose: 1000,
+    })
   }
   return (
     <div>

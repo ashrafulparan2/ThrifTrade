@@ -25,7 +25,6 @@ import ProductItem from '../components/ProductItem.js'
 import { useGetProductQueries } from '../hooks/productHooks.js'
 import { ApiError } from '../types/Apierror.js'
 import { getError } from '../utils.js'
-import HomepageSell from './HomepageSell.js'
 
 export default function HomePage() {
   const swiperOptions = {
@@ -130,7 +129,9 @@ export default function HomePage() {
                 <h5>iPad S13+ Pro.</h5>
                 <p>From $999.00 or $41.62/mo.</p>
                 <Link to={'/product/'}>
-                  <Button className="button-color">BUY NOW</Button>
+                  <h3>
+                <Badge bg="secondary">Buy Now</Badge>
+                </h3>
                 </Link>
               </div>
             </div>
