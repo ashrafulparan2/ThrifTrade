@@ -92,7 +92,7 @@ function App() {
                   to="/orderhistory"
                  
                 >
-                  Sign Out
+                  Order History
                 </Link>
                
                 <Link

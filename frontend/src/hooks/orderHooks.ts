@@ -1,25 +1,18 @@
-
+import { useMutation, useQuery } from '@tanstack/react-query'
 import apiClient from '../apiClient.js'
 import { CartItem, ShippingAddress } from '../types/Cart.js'
 import { Order } from '../types/Order.js'
-import { useMutation, useQuery } from '@tanstack/react-query'
-
-
-
-
 export const useGetOrderDetailsQuery = (id: string) =>
   useQuery({
     queryKey: ['orders', id],
     queryFn: async () => (await apiClient.get<Order>(`api/orders/${id}`)).data,
   })
-
-  export const useGetPaypalClientIdQuery = () =>
+export const useGetPaypalClientIdQuery = () =>
   useQuery({
     queryKey: ['paypal-clientId'],
     queryFn: async () =>
       (await apiClient.get<{ clientId: string }>(`/api/keys/paypal`)).data,
   })
-
 export const usePayOrderMutation = () =>
   useMutation({
     mutationFn: async (details: { orderId: string }) =>
@@ -30,7 +23,6 @@ export const usePayOrderMutation = () =>
         )
       ).data,
   })
-
 export const useCreateOrderMutation = () =>
   useMutation({
     mutationFn: async (order: {
@@ -49,7 +41,8 @@ export const useCreateOrderMutation = () =>
         )
       ).data,
   })
-  export const useGetOrderHistoryQuery = () =>
+
+export const useGetOrderHistoryQuery = () =>
   useQuery({
     queryKey: ['order-history'],
     queryFn: async () =>
