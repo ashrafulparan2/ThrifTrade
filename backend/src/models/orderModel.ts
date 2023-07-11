@@ -42,8 +42,7 @@ class PaymentResult {
   @prop()
   public email_address!: string
 }
-
-modelOptions({ schemaOptions: { timestamps: true } })
+@modelOptions({ schemaOptions: { timestamps: true } })
 export class Order {
   public _id!: string
   @prop()

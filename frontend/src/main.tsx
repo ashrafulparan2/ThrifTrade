@@ -29,6 +29,9 @@ import ShippingAddressPage from "./pages/ShippingAddressPage.js";
 import PaymentMethodPage from "./pages/PaymentMethodPage.js";
 import ProtectedRoute from "./components/ProtectedRoute.js";
 import PlaceOrderPage from './pages/PlaceOrderPage.js'
+import OrderPage from './pages/OrderPage.js'
+import { PayPalScriptProvider } from '@paypal/react-paypal-js'
+import OrderHistoryPage from './pages/OrderHistoryPage.js'
 // import {CartPage} from './pages/CartPage.js';
 
 const router = createBrowserRouter(
@@ -45,8 +48,11 @@ const router = createBrowserRouter(
         <Route path="shipping" element={<ShippingAddressPage />} />
         <Route path="payment" element={<PaymentMethodPage />} />
         <Route path="placeorder" element={<PlaceOrderPage />} />
-      </Route>
+        <Route path="/order/:id" element={<OrderPage />} />
+      <Route path="/orderhistory" element={<OrderHistoryPage />} />
 
+      </Route>
+      
       {/* <Route path="about_us" element={<About />} /> */}
       {/* <Route path="dashboard" element={<Dashboard />} /> */}
       {/* ... etc. */}
@@ -59,12 +65,14 @@ const queryClient = new QueryClient();
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <StoreProvider>
-      <HelmetProvider>
-        <QueryClientProvider client={queryClient}>
-          <RouterProvider router={router} />
-          <ReactQueryDevtools initialIsOpen={false} />
-        </QueryClientProvider>
-      </HelmetProvider>
+    <PayPalScriptProvider options={{ 'client-id': 'sb' }} deferLoading={true}>
+        <HelmetProvider>
+          <QueryClientProvider client={queryClient}>
+            <RouterProvider router={router} />
+            <ReactQueryDevtools initialIsOpen={false} />
+          </QueryClientProvider>
+        </HelmetProvider>
+      </PayPalScriptProvider>
     </StoreProvider>
   </React.StrictMode>
 );
