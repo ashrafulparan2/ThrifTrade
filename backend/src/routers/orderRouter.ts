@@ -1,9 +1,19 @@
 import express, { Request, Response } from 'express'
 import asyncHandler from 'express-async-handler'
-import { OrderModel } from '../models/orderModel'
+import { Order, OrderModel } from '../models/orderModel'
 import { Product } from '../models/productModel'
 import { isAuth } from '../utils'
 export const orderRouter = express.Router()
+
+orderRouter.get(
+  '/mine',
+  isAuth,
+  asyncHandler(async (req: Request, res: Response) => {
+    const orders = await OrderModel.find({ user: req.user._id })
+    res.json(orders)
+  })
+)
+
 
 orderRouter.get(
   // /api/orders/:id
@@ -38,8 +48,32 @@ orderRouter.post(
         taxPrice: req.body.taxPrice,
         totalPrice: req.body.totalPrice,
         user: req.user._id,
-      })
+      } as Order )
       res.status(201).json({ message: 'Order Created', order: createdOrder })
+    }
+  })
+)
+
+orderRouter.put(
+  '/:id/pay',
+  isAuth,
+  asyncHandler(async (req: Request, res: Response) => {
+    const order = await OrderModel.findById(req.params.id)
+
+    if (order) {
+      order.isPaid = true
+      order.paidAt = new Date(Date.now())
+      order.paymentResult = {
+        paymentId: req.body.id,
+        status: req.body.status,
+        update_time: req.body.update_time,
+        email_address: req.body.email_address,
+      }
+      const updatedOrder = await order.save()
+
+      res.send({ order: updatedOrder, message: 'Order Paid Successfully' })
+    } else {
+      res.status(404).json({ message: 'Order Not Found' })
     }
   })
 )
