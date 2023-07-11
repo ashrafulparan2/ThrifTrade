@@ -94,6 +94,13 @@ function App() {
                 >
                   Order History
                 </Link>
+                <Link
+                  className="dropdown-item"
+                  to="/profile"
+                 
+                >
+                 Update Profile
+                </Link>
                
                 <Link
                   className="dropdown-item"

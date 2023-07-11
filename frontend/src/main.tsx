@@ -15,7 +15,7 @@ import "./index.css";
 import HomePage from "./pages/HomePage.js";
 import ProductPage from "./pages/ProductPage.js";
 // import Login from "./pages/Login.js";
-// import Buy from "./pages/buyFolder/Buy.js";
+ import Buy from "./pages/buyFolder/Buy.js";
 // import About from "./pages/AboutUs.js";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -35,6 +35,8 @@ import OrderHistoryPage from './pages/OrderHistoryPage.js'
 import Auction from "./pages/Auction.js";
 // import {CartPage} from './pages/CartPage.js';
 
+  import ProfilePage from "./pages/ProfilePage.js";
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
@@ -43,7 +45,7 @@ const router = createBrowserRouter(
       <Route path="/signin" element={<SigninPage />} />
       <Route path="signup" element={<SignupPage />} />
       <Route path="cart" element={<CartPage />} />
-      {/* <Route path="buy" element={<Buy />} /> */}
+       <Route path="buy" element={<Buy />} /> 
       <Route path="sell" element={<Sell />} />
       <Route path="" element={<ProtectedRoute />}>
         <Route path="shipping" element={<ShippingAddressPage />} />
@@ -51,6 +53,7 @@ const router = createBrowserRouter(
         <Route path="placeorder" element={<PlaceOrderPage />} />
         <Route path="/order/:id" element={<OrderPage />} />
       <Route path="/orderhistory" element={<OrderHistoryPage />} />
+      <Route path="/profile" element={<ProfilePage />} />
       <Route path="/auction" element={<Auction />} />
 
       </Route>
