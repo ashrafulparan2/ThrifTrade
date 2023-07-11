@@ -261,3 +261,21 @@ img.thumbnail {
   left: auto;
   right: 0;
 }
+
+
+
+/* auction page */
+.Bid-color{
+  color:#0b8b0b
+}
+
+.Bid-color-time{
+  color:#c04800
+}
+.auction-button-color{
+  background-color:#6052f5;
+}
+
+/* .carousel2 .item{
+    size: 500px
+} */
