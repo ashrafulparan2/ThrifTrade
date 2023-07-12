@@ -13,7 +13,7 @@ export default function PaymentMethodPage() {
   } = state
 
   const [paymentMethodName, setPaymentMethodName] = useState(
-    paymentMethod || 'Bkash'
+    paymentMethod || 'PayPal'
   )
   useEffect(() => {
     if (!shippingAddress.address) {
@@ -39,23 +39,14 @@ export default function PaymentMethodPage() {
           <div className="mb-3">
             <Form.Check
               type="radio"
-              id="Bkash"
-              label="Bkash"
-              value="Bkash"
-              checked={paymentMethodName === 'Bkash'}
+              id="PayPal"
+              label="PayPal"
+              value="PayPal"
+              checked={paymentMethodName === 'PayPal'}
               onChange={(e) => setPaymentMethodName(e.target.value)}
             />
           </div>
-          <div className="mb-3">
-            <Form.Check
-              type="radio"
-              id="Rocket"
-              label="Rocket"
-              value="Rocket"
-              checked={paymentMethodName === 'Rocket'}
-              onChange={(e) => setPaymentMethodName(e.target.value)}
-            />
-          </div>
+          
           <div className="mb-3">
             <Button type="submit">Continue</Button>
           </div>
