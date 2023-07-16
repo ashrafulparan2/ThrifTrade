@@ -279,3 +279,18 @@ img.thumbnail {
 /* .carousel2 .item{
     size: 500px
 } */
+.option_choice{
+  position: relative;
+}
+.dropdown_search{
+  position: absolute;;
+  left: 0;
+  top: 44px;
+  background: white;
+  z-index: 100;
+  width: 70%;
+  padding:0.5rem;
+  border-radius:0.5rem;
+
+  
+} 

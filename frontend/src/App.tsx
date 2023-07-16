@@ -1,43 +1,59 @@
-import { Button,Badge, Container, Form, Nav, Navbar, NavDropdown } from 'react-bootstrap'
-import { Link, Outlet } from 'react-router-dom'
-import Footer from './components/footer/Footer.js'
-import { useContext, useEffect } from 'react'
-import { Store } from './Store.js'
-import { LinkContainer } from 'react-router-bootstrap'
-import { ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
+import {
+  Button,
+  Badge,
+  Container,
+  Form,
+  Nav,
+  Navbar,
+  NavDropdown,
+} from "react-bootstrap";
+import { Link, Outlet } from "react-router-dom";
+import Footer from "./components/footer/Footer.js";
+import { SetStateAction, useContext, useEffect, useState } from "react";
+import { Store } from "./Store.js";
+import { LinkContainer } from "react-router-bootstrap";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { sampleProducts } from "./data.js";
 
 function App() {
-
   const {
-     
     state: { mode, cart, userInfo },
     dispatch,
-  } = useContext(Store)
+  } = useContext(Store);
 
   useEffect(() => {
-    document.body.setAttribute('data-bs-theme', mode)
-  }, [mode])
+    document.body.setAttribute("data-bs-theme", mode);
+  }, [mode]);
   const switchModeHandler = () => {
-    dispatch({ type: 'SWITCH_MODE' })
-  }
+    dispatch({ type: "SWITCH_MODE" });
+  };
   const signoutHandler = () => {
-    dispatch({ type: 'USER_SIGNOUT' })
-    localStorage.removeItem('userInfo')
-    localStorage.removeItem('cartItems')
-    localStorage.removeItem('shippingAddress')
-    localStorage.removeItem('paymentMethod')
-    window.location.href = '/signin'
-  }
-  return (
-   
+    dispatch({ type: "USER_SIGNOUT" });
+    localStorage.removeItem("userInfo");
+    localStorage.removeItem("cartItems");
+    localStorage.removeItem("shippingAddress");
+    localStorage.removeItem("paymentMethod");
+    window.location.href = "/signin";
+  };
+  const [value, setValue] = useState("");
+  const onChange = (event: { target: { value: SetStateAction<string> } }) => {
+    setValue(event.target.value);
+  };
+  const onSearch = (searchTerm) => {
+    setValue(searchTerm);
+    //api.search
+    
+    window.location.href = "/product/"+searchTerm;
+  };
 
+  return (
     <div className="d-flex flex-column vh-100">
       <ToastContainer position="bottom-center" limit={1} />
       <header>
         <Navbar bg="dark" variant="dark" expand="lg">
           <Container>
-            <Navbar.Brand >
+            <Navbar.Brand>
               <Link to={`/`} className="no-underline">
                 ThriftTrade
               </Link>
@@ -50,58 +66,77 @@ function App() {
 
               <Nav.Link href="/categories">Categories</Nav.Link>
 
-   
               <Nav.Link href="/about_us">About Us</Nav.Link>
             </Nav>
-            <Form className="d-flex">
+            <Form className="d-flex option_choice">
               <Form.Control
                 type="search"
+                value={value}
+                onChange={onChange}
                 placeholder="Search"
-                className="me-2"
+                className="me-2 "
                 aria-label="Search"
               />
-              <Button variant="dark">Search</Button>
+              {/* let slugname={""}; */}
+              <div className="dropdown dropdown_search">
+                {sampleProducts
+                  .filter((item) => {
+                    const searchTerm = value.toLowerCase();
+                    const fullname = item.name.toLowerCase();
+
+                    return (
+                      searchTerm &&
+                      fullname.startsWith(searchTerm) &&
+                      fullname !== searchTerm
+                    );
+                  })
+                  .map((item) => (
+                    <div
+                      onClick={() => onSearch(item.slug)}
+                      className="dropdown-row"
+                      key={item.slug}
+                    >
+                      {console.log(item.slug)} {item.name}
+                    </div>
+                  ))}
+              </div>
+              {/* console.log("jf");console.log(slugname); */}
+
+              {/* <Link to={`/product/${slugname}`}> */}
+                {" "}
+                <Button variant="dark" onClick={() => onSearch(value)}>
+                  Search
+                </Button>
+              {/* </Link> */}
             </Form>
           </Container>
 
           <Nav>
-          <Link to="/cart" className="nav-link">
+            <Link to="/cart" className="nav-link">
               Cart
-          
               {cart.cartItems.length > 0 && (
                 <Badge pill bg="danger">
-                  {cart.cartItems.reduce((a, c) => a + c.quantity, 0)
-                 
-                  }
-                 
+                  {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
                 </Badge>
               )}
             </Link>
             {userInfo ? (
-               <NavDropdown
-               title={userInfo.name}
-               id="basic-nav-dropdown"
-               className="dropdown-menu-start"
-             >
-               {/* { <LinkContainer to="/orderhistory">
+              <NavDropdown
+                title={userInfo.name}
+                id="basic-nav-dropdown"
+                className="dropdown-menu-start"
+              >
+                {/* { <LinkContainer to="/orderhistory">
                  <NavDropdown.Item>Order History</NavDropdown.Item>
                </LinkContainer> } */}
-               
-               <Link
-                  className="dropdown-item"
-                  to="/orderhistory"
-                 
-                >
+
+                <Link className="dropdown-item" to="/orderhistory">
                   Order History
                 </Link>
-                <Link
-                  className="dropdown-item"
-                  to="/profile"
-                 
-                >
-                 Update Profile
+                <Link className="dropdown-item" to="/profile">
+                  Update Profile
                 </Link>
-               
+
                 <Link
                   className="dropdown-item"
                   to="#signout"
@@ -127,7 +162,7 @@ function App() {
 
       <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
