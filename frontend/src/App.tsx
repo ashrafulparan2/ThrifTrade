@@ -1,51 +1,50 @@
+import { SetStateAction, useContext, useEffect, useState } from 'react'
 import {
-  Button,
   Badge,
+  Button,
   Container,
   Form,
   Nav,
-  Navbar,
   NavDropdown,
-} from "react-bootstrap";
-import { Link, Outlet } from "react-router-dom";
-import Footer from "./components/footer/Footer.js";
-import { SetStateAction, useContext, useEffect, useState } from "react";
-import { Store } from "./Store.js";
-import { LinkContainer } from "react-router-bootstrap";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { sampleProducts } from "./data.js";
+  Navbar,
+} from 'react-bootstrap'
+import { Link, Outlet } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { Store } from './Store.js'
+import Footer from './components/footer/Footer.js'
+import { sampleProducts } from './data.js'
 
 function App() {
   const {
     state: { mode, cart, userInfo },
     dispatch,
-  } = useContext(Store);
+  } = useContext(Store)
 
   useEffect(() => {
-    document.body.setAttribute("data-bs-theme", mode);
-  }, [mode]);
+    document.body.setAttribute('data-bs-theme', mode)
+  }, [mode])
   const switchModeHandler = () => {
-    dispatch({ type: "SWITCH_MODE" });
-  };
+    dispatch({ type: 'SWITCH_MODE' })
+  }
   const signoutHandler = () => {
-    dispatch({ type: "USER_SIGNOUT" });
-    localStorage.removeItem("userInfo");
-    localStorage.removeItem("cartItems");
-    localStorage.removeItem("shippingAddress");
-    localStorage.removeItem("paymentMethod");
-    window.location.href = "/signin";
-  };
-  const [value, setValue] = useState("");
+    dispatch({ type: 'USER_SIGNOUT' })
+    localStorage.removeItem('userInfo')
+    localStorage.removeItem('cartItems')
+    localStorage.removeItem('shippingAddress')
+    localStorage.removeItem('paymentMethod')
+    window.location.href = '/signin'
+  }
+  const [value, setValue] = useState('')
   const onChange = (event: { target: { value: SetStateAction<string> } }) => {
-    setValue(event.target.value);
-  };
+    setValue(event.target.value)
+  }
   const onSearch = (searchTerm) => {
-    setValue(searchTerm);
+    setValue(searchTerm)
     //api.search
-    
-    window.location.href = "/product/"+searchTerm;
-  };
+
+    window.location.href = '/product/' + searchTerm
+  }
 
   return (
     <div className="d-flex flex-column vh-100">
@@ -74,21 +73,21 @@ function App() {
                 value={value}
                 onChange={onChange}
                 placeholder="Search"
-                className="me-2 "
+                className="me-2 search-visibility"
                 aria-label="Search"
               />
               {/* let slugname={""}; */}
               <div className="dropdown dropdown_search">
                 {sampleProducts
                   .filter((item) => {
-                    const searchTerm = value.toLowerCase();
-                    const fullname = item.name.toLowerCase();
+                    const searchTerm = value.toLowerCase()
+                    const fullname = item.name.toLowerCase()
 
                     return (
                       searchTerm &&
                       fullname.startsWith(searchTerm) &&
                       fullname !== searchTerm
-                    );
+                    )
                   })
                   .map((item) => (
                     <div
@@ -96,17 +95,15 @@ function App() {
                       className="dropdown-row"
                       key={item.slug}
                     >
-                      {console.log(item.slug)} {item.name}
+                      <Button className='search_option_item'>{item.name}</Button>
                     </div>
                   ))}
               </div>
               {/* console.log("jf");console.log(slugname); */}
-
-              {/* <Link to={`/product/${slugname}`}> */}
-                {" "}
-                <Button variant="dark" onClick={() => onSearch(value)}>
-                  Search
-                </Button>
+              {/* <Link to={`/product/${slugname}`}> */}{' '}
+              <Button variant="dark" onClick={() => onSearch(value)}>
+                Search
+              </Button>
               {/* </Link> */}
             </Form>
           </Container>
@@ -162,7 +159,7 @@ function App() {
 
       <Footer />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
