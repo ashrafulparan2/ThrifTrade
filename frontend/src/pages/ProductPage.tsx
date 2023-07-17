@@ -1,4 +1,13 @@
-import { Badge, Button, Card, Col, ListGroup, Row } from 'react-bootstrap'
+import {
+  Badge,
+  Button,
+  Card,
+  Col,
+  Container,
+  Form,
+  ListGroup,
+  Row,
+} from 'react-bootstrap'
 import { Helmet } from 'react-helmet-async'
 import { useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
@@ -9,7 +18,11 @@ import { useGetProductDetailsBySlugQuery } from '../hooks/productHooks.js'
 // import { ApiError } from '../types/ApiError.js'
 import { useContext } from 'react'
 import { Store } from '../Store.js'
+import { ApiError } from '../types/Apierror.js'
 import { convertProductToCartItem, getError } from '../utils.js'
+
+
+
 export default function ProductPage() {
   const params = useParams()
   const { slug } = params
@@ -108,6 +121,25 @@ export default function ProductPage() {
         </Col>
         <Col md={3}></Col>
       </Row>
+      <Container mt-3>
+        <Container mt-3 className="product-page-container">
+          <Form>
+            <Form.Group controlId="review">
+              <Form.Label>Leave a Review</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={3}
+                // value={review}
+                // onChange={(e) => setReview(e.target.value)}
+                placeholder="Write your review here..."
+              />
+            </Form.Group>
+            <Button type="submit" variant="dark">
+              Submit Review
+            </Button>
+          </Form>
+        </Container>
+      </Container>
 
       <section id="testimonials">
         <div className="testimonial-heading">

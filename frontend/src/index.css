@@ -272,9 +272,13 @@ img.thumbnail {
   background-color: #6052f5;
 }
 
+
+
 /* .carousel2 .item{
     size: 500px
 } */
+
+/* css for search */
 .option_choice {
   position: relative;
 }
@@ -433,4 +437,90 @@ a {
 ::selection {
   color: #ffffff;
   background-color: #252525;
+}
+
+
+/* offerpage css */
+
+.offer-page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* h1 {
+  text-align: center;
+  margin-bottom: 30px;
+} */
+
+.offer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+.offer-image {
+  flex-basis: 30%;
+  position: relative;
+}
+
+.offer-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #c00;
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+.offer-details {
+  flex-basis: 60%;
+  padding: 0 20px;
+}
+
+.offer-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.offer-description {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.offer-price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #c00;
+}
+
+.offer-price-strike{
+  font-size:15px;
+    font-weight: bold;
+}
+
+.offer-button {
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: #c00;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.offer-button:hover {
+  background-color: #900;
+}
+
+.offer-image-size{
+  height:400px;
+}
+
+.button-color-red{
+  background-color: red;
 }

@@ -189,5 +189,33 @@ export const auctionProducts: Product[] = [
   rating: 4.5,
   numReviews: 10,
   description: 'high quality shirt',
+  
 },
+]
+export const offerProducts: Product[] = [
+  {
+    name: 'Zabra Elite 4',
+    slug: 'zabra-elite-4',
+    category: 'Air Buds',
+    image: 'https://m.media-amazon.com/images/I/51GS8zP8kxL._AC_SL1400_.jpg',
+    price: 700,
+    countInStock: 10,
+    brand: 'Apple',
+    rating: 4.5,
+    numReviews: 10,
+    description: 'True Wireless Earbuds with Secure Active Fit, 4 Built-in Microphones, Active Noise Cancellation and Adjustable HearThrough Technology – Black',
+  },
+  {
+    name: 'Zabra Elite 4',
+    slug: 'zabra-elit-4',
+    category: 'offer',
+    image: 'https://m.media-amazon.com/images/I/51GS8zP8kxL._AC_SL1400_.jpg',
+    price: 700,
+    countInStock: 10,
+    brand: 'Apple',
+    rating: 4.5,
+    numReviews: 10,
+    description: '3 months used',
+  },
+
 ]

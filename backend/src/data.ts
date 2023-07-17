@@ -93,7 +93,7 @@ export const sampleProducts: Product[] = [
   {
     name: 'Acer aspire N17C4',
     slug: 'acer-aspire-n17c4',
-    category: 'Laptop',
+    category: 'offer',
     image:
       'https://d3qqewlrl1nyfn.cloudfront.net/product/1685023305471472481.webp',
     price: 120,
@@ -103,6 +103,19 @@ export const sampleProducts: Product[] = [
     numReviews: 10,
     description: 'high quality shirt',
   },
+  {
+    name: 'Zabra Elite 4',
+    slug: 'zabra-elite-4',
+    category: 'offer',
+    image: 'https://m.media-amazon.com/images/I/51GS8zP8kxL._AC_SL1400_.jpg',
+    price: 700,
+    countInStock: 10,
+    brand: 'Apple',
+    rating: 4.5,
+    numReviews: 10,
+    description: 'True Wireless Earbuds with Secure Active Fit, 4 Built-in Microphones, Active Noise Cancellation and Adjustable HearThrough Technology – Black',
+  },
+
 ]
 export const sampleUsers: User[] = [
   {

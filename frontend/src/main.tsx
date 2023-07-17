@@ -37,6 +37,7 @@ import { StoreProvider } from './Store.js'
 
 import BiddingPage from './pages/BiddingPage.js'
 import ProfilePage from './pages/ProfilePage.js'
+import OfferPage from './pages/OfferPage.js'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -59,6 +60,7 @@ const router = createBrowserRouter(
         <Route path="/auction" element={<Auction />} />
 
         <Route path="/auction/:slug" element={<BiddingPage />} />
+        <Route path="/offers" element={<OfferPage />} />
       </Route>
 
       {/* <Route path="about_us" element={<About />} /> */}

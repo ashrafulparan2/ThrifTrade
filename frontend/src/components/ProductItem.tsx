@@ -7,6 +7,11 @@ import { Store } from "../Store.js";
 import { useContext } from "react";
 import { CartItem } from "../types/Cart.js";
 import { toast } from "react-toastify";
+
+
+
+
+
 function ProductItem({ product }: { product: Product }) {
   const { state, dispatch } = useContext(Store);
   const {
