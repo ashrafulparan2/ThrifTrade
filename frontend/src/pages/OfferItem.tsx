@@ -44,7 +44,7 @@ export default function OfferItem({ product }: { product: Product }) {
       </div>
       <div className="offer-details">
         <h2 className="offer-title">{product.name}</h2>
-        <p className="offer-description">{product.description}</p>
+        <p className="offer-description">3 months used</p>
         <p className="offer-price-strike">
           <s>${Math.floor(product.price*1.1)}</s>
         </p>

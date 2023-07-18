@@ -154,8 +154,8 @@ export default function ProductPage() {
                   <img src="https://i.ibb.co/84C7kvg/image.png" alt="Profile" />
                 </div>
                 <div className="name-user">
-                  <strong>Touseeq Ijaz</strong>
-                  <span>@touseeqijazweb</span>
+                  <strong>Sajjad Hossain</strong>
+                  <span>@sajjad</span>
                 </div>
               </div>
               <div className="reviews">
@@ -168,10 +168,12 @@ export default function ProductPage() {
             </div>
             <div className="client-comment">
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Exercitationem, quaerat quis? Provident temporibus architecto
-                asperiores nobis maiores nisi a. Quae doloribus ipsum aliquam
-                tenetur voluptates incidunt blanditiis sed atque cumque.
+              "I'm so glad I found this product! It has made a noticeable difference in my daily routine. The user-friendly interface and intuitive design make it a breeze to use. Plus, the results are remarkable. It's definitely worth the investment. Trust me, you won't regret getting your hands on this gem!"
+
+
+
+
+
               </p>
             </div>
           </div>
@@ -184,8 +186,8 @@ export default function ProductPage() {
                   <img src="https://i.ibb.co/84C7kvg/image.png" alt="Profile" />
                 </div>
                 <div className="name-user">
-                  <strong>J.K Rowling</strong>
-                  <span>@jkrowling</span>
+                  <strong>Ashraful Islam</strong>
+                  <span>@aashraful</span>
                 </div>
               </div>
               <div className="reviews">
@@ -198,10 +200,7 @@ export default function ProductPage() {
             </div>
             <div className="client-comment">
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Exercitationem, quaerat quis? Provident temporibus architecto
-                asperiores nobis maiores nisi a. Quae doloribus ipsum aliquam
-                tenetur voluptates incidunt blanditiis sed atque cumque.
+              "I've tried several similar products before, but none of them come close to this one. The quality and durability are exceptional. It's evident that a lot of thought and effort went into designing this product. I've been using it extensively, and it hasn't let me down. A definite winner!"
               </p>
             </div>
           </div>
@@ -213,8 +212,8 @@ export default function ProductPage() {
                   <img src="https://i.ibb.co/84C7kvg/image.png" alt="Profile" />
                 </div>
                 <div className="name-user">
-                  <strong>Harry Potter</strong>
-                  <span>@DanielRedclief</span>
+                  <strong>Asim Foize</strong>
+                  <span>@osim</span>
                 </div>
               </div>
               <div className="reviews">
@@ -227,10 +226,7 @@ export default function ProductPage() {
             </div>
             <div className="client-comment">
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Exercitationem, quaerat quis? Provident temporibus architecto
-                asperiores nobis maiores nisi a. Quae doloribus ipsum aliquam
-                tenetur voluptates incidunt blanditiis sed atque cumque.
+              "This product is simply fantastic! It's a game-changer for me. The features and functionality it offers are top-notch. I've been using it for a while now, and it has made my life so much easier. I can't imagine going back to my old ways. A must-have for everyone!"
               </p>
             </div>
           </div>
@@ -242,8 +238,8 @@ export default function ProductPage() {
                   <img src="https://i.ibb.co/84C7kvg/image.png" alt="Profile" />
                 </div>
                 <div className="name-user">
-                  <strong>Oliva</strong>
-                  <span>@Olivaadward</span>
+                  <strong>Arpita </strong>
+                  <span>@aarpita</span>
                 </div>
               </div>
               <div className="reviews">
@@ -256,10 +252,7 @@ export default function ProductPage() {
             </div>
             <div className="client-comment">
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Exercitationem, quaerat quis? Provident temporibus architecto
-                asperiores nobis maiores nisi a. Quae doloribus ipsum aliquam
-                tenetur voluptates incidunt blanditiis sed atque cumque.
+              "Amazing product! I'm thoroughly impressed with its performance and quality. It exceeded my expectations in every way. I highly recommend it to anyone looking for a reliable and efficient solution. You won't be disappointed!"
               </p>
             </div>
           </div>
