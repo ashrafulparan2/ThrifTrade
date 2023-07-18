@@ -309,19 +309,19 @@ const AboutUs = () => {
           <h2>Meet Our Team</h2>
           <TeamMembers>
             <div className="team-member">
-              <img src="https://i.ibb.co/84C7kvg/image.png" alt="Team Member 1" />
-              <h3>John Doe</h3>
-              <p>CEO</p>
+              <img src="../../images/paran.png" alt="Team Member 1" />
+              <h3>Ashraful Islam</h3>
+              <p>Full Stack Devoloper</p>
             </div>
             <div className="team-member">
-              <img src="https://i.ibb.co/84C7kvg/image.png" alt="Team Member 2" />
-              <h3>Jane Smith</h3>
-              <p>CTO</p>
+              <img src="../../images/shawon.png" alt="Team Member 2" />
+              <h3>Sajjad Hossain</h3>
+              <p>Full Stack Devoloper</p>
             </div>
             <div className="team-member">
-              <img src="https://i.ibb.co/84C7kvg/image.png" alt="Team Member 3" />
-              <h3>Michael Johnson</h3>
-              <p>Marketing Manager</p>
+              <img src="../../images/aiimon.png" alt="Team Member 3" />
+              <h3>Asim Foiz Aimon</h3>
+              <p>Full Stack Devoloper</p>
             </div>
           </TeamMembers>
         </div>
