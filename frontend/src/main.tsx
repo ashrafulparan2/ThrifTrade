@@ -38,6 +38,7 @@ import { StoreProvider } from './Store.js'
 import BiddingPage from './pages/BiddingPage.js'
 import ProfilePage from './pages/ProfilePage.js'
 import OfferPage from './pages/OfferPage.js'
+import AboutUs from './pages/AboutUs.js'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -63,7 +64,7 @@ const router = createBrowserRouter(
         <Route path="/offers" element={<OfferPage />} />
       </Route>
 
-      {/* <Route path="about_us" element={<About />} /> */}
+      <Route path="about_us" element={<AboutUs />} />
       {/* <Route path="dashboard" element={<Dashboard />} /> */}
       {/* ... etc. */}
     </Route>
