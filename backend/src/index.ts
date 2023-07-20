@@ -7,6 +7,7 @@ import { productRouter } from './routers/productRouter'
 import { seedRouter } from './routers/seedRouter'
 import { keyRouter } from './routers/keyRouter'
 import { userRouter } from './routers/userRouter'
+import {auctionRouter} from "./routers/auctionRouter";
 
 dotenv.config()
 
@@ -38,6 +39,7 @@ app.use('/api/users', userRouter)
 app.use('/api/seed', seedRouter)
 app.use('/api/keys', keyRouter)
 app.use('/api/orders', orderRouter)
+app.use('/api/auction', auctionRouter)
 
 const PORT = 4000
 app.listen(PORT, () => {
