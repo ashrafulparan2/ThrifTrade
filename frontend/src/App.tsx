@@ -63,7 +63,30 @@ function App() {
               <Nav.Link href="/offers">Offers</Nav.Link>
               <Nav.Link href="/auction">Auction</Nav.Link>
 
-              <Nav.Link href="/categories">Categories</Nav.Link>
+              {/* <Nav.Link href="/categories">Categories</Nav.Link> */}
+              <NavDropdown
+                title="Categories"
+                id="basic-nav-dropdown"
+                className="dropdown-menu-start"
+              >
+                {/* { <LinkContainer to="/orderhistory">
+                 <NavDropdown.Item>Order History</NavDropdown.Item>
+               </LinkContainer> } */}
+
+                <Link className="dropdown-item" to="/phone">
+                  Phones
+                </Link>
+                <Link className="dropdown-item" to="/laptop">
+                  Laptop
+                </Link>
+
+                <Link className="dropdown-item" to="/watch">
+                  Watches
+                </Link>
+                <Link className="dropdown-item" to="/airbuds">
+                  Airbuds
+                </Link>
+              </NavDropdown>
 
               <Nav.Link href="/about_us">About Us</Nav.Link>
             </Nav>
@@ -95,7 +118,9 @@ function App() {
                       className="dropdown-row"
                       key={item.slug}
                     >
-                      <Button className='search_option_item'>{item.name}</Button>
+                      <Button className="search_option_item">
+                        {item.name}
+                      </Button>
                     </div>
                   ))}
               </div>
