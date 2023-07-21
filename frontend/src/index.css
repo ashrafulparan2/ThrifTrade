@@ -620,3 +620,11 @@ a {
 .about-us .logo img {
   width: 200px;
 }
+
+
+.card-height-adjustment{
+  height: 520px;
+}
+.image-height-adjustment{
+  height:350px;
+}
