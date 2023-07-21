@@ -30,15 +30,20 @@ import PaymentMethodPage from './pages/PaymentMethodPage.js'
 import PlaceOrderPage from './pages/PlaceOrderPage.js'
 import Sell from './pages/Sell.js'
 import ShippingAddressPage from './pages/ShippingAddressPage.js'
-import SigninPage from './pages/SignInPage.js'
+// import SigninPage from './pages/SignInPage.js'
 import SignupPage from './pages/SignupPage.js'
 import { StoreProvider } from './Store.js'
 // import {CartPage} from './pages/CartPage.js';
 
-import BiddingPage from './pages/BiddingPage.js'
-import ProfilePage from './pages/ProfilePage.js'
-import OfferPage from './pages/OfferPage.js'
 import AboutUs from './pages/AboutUs.js'
+import BiddingPage from './pages/BiddingPage.js'
+import OfferPage from './pages/OfferPage.js'
+import ProfilePage from './pages/ProfilePage.js'
+import Phone from './pages/Phone.js'
+import Laptop from './pages/Laptop.js'
+import Watch from './pages/Watch.js'
+import SigninPage from './pages/SigninPage.js'
+import Airbuds from './pages/Airbuds.js'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -49,6 +54,10 @@ const router = createBrowserRouter(
       <Route path="signup" element={<SignupPage />} />
       <Route path="cart" element={<CartPage />} />
       <Route path="buy" element={<Buy />} />
+      <Route path="phone" element={<Phone />} />
+      <Route path="laptop" element={<Laptop />} />
+      <Route path="watch" element={<Watch />} />
+      <Route path="airbuds" element={<Airbuds />} />
       <Route path="sell" element={<Sell />} />
       <Route path="" element={<ProtectedRoute />}>
         <Route path="shipping" element={<ShippingAddressPage />} />

@@ -48,8 +48,33 @@ const FilterCheckbox = styled.input`
 `;
 
 const Filter: React.FC = () => {
+  const handleChangePhone = (event: React.ChangeEvent<HTMLInputElement>) => {
+    // Handle filter change
+    window.location.href = '/phone'
+
+  };
+
+  const handleChangeLaptop = (event: React.ChangeEvent<HTMLInputElement>) => {
+    // Handle filter change
+    window.location.href = '/laptop'
+
+  };
+
+  const handleChangeWatch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    // Handle filter change
+    window.location.href = '/watch'
+
+  };
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     // Handle filter change
+    window.location.href = '/buy'
+
+  };
+  const handleChangeAirbuds = (event: React.ChangeEvent<HTMLInputElement>) => {
+    // Handle filter change
+    window.location.href = '/airbuds'
+
   };
 
   return (
@@ -60,19 +85,19 @@ const Filter: React.FC = () => {
         All
       </OptionLabel>
       <OptionLabel>
-        <FilterCheckbox type="checkbox" onChange={handleChange} />
+        <FilterCheckbox type="checkbox" onChange={handleChangeLaptop} />
         Laptop
       </OptionLabel>
       <OptionLabel>
-        <FilterCheckbox type="checkbox" onChange={handleChange} />
+        <FilterCheckbox type="checkbox" onChange={handleChangeWatch} />
         Watch
       </OptionLabel>
       <OptionLabel>
-        <FilterCheckbox type="checkbox" onChange={handleChange} />
+        <FilterCheckbox type="checkbox" onChange={handleChangePhone} />
         Phones
       </OptionLabel>
       <OptionLabel>
-        <FilterCheckbox type="checkbox" onChange={handleChange} />
+        <FilterCheckbox type="checkbox" onChange={handleChangeAirbuds} />
         AirBuds
       </OptionLabel>
       {/* Add more options here */}
