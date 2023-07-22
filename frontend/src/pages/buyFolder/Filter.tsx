@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowUp,faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
 const FilterContainer = styled.div`
   display: flex;
@@ -76,6 +78,18 @@ const Filter: React.FC = () => {
     window.location.href = '/airbuds'
 
   };
+  const handleChangePriceUp = (event: React.ChangeEvent<HTMLInputElement>) => {
+    // Handle filter change
+    window.location.href = '/priceup'
+
+
+  };
+  const handleChangePriceDown = (event: React.ChangeEvent<HTMLInputElement>) => {
+    // Handle filter change
+    
+    window.location.href = '/price'
+
+  };
 
   return (
     <FilterContainer>
@@ -100,7 +114,18 @@ const Filter: React.FC = () => {
         <FilterCheckbox type="checkbox" onChange={handleChangeAirbuds} />
         AirBuds
       </OptionLabel>
-      {/* Add more options here */}
+      <OptionLabel>
+        <FilterCheckbox type="checkbox" onChange={handleChangePriceDown} />
+        <div>Price </div>
+        
+      <FontAwesomeIcon icon={faArrowDown} />
+      </OptionLabel>
+      <OptionLabel>
+        <FilterCheckbox type="checkbox" onChange={handleChangePriceUp} />
+        <div>Price </div>
+        
+      <FontAwesomeIcon icon={faArrowUp} />
+      </OptionLabel>
     </FilterContainer>
   );
 };

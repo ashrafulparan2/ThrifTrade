@@ -11,6 +11,7 @@ import { useGetProductDetailsBySlugQuery } from "../hooks/productHooks.js";
 import { convertProductToCartItem, getError } from "../utils.js";
 import Countdown from "react-countdown";
 import apiClient from "../apiClient.js";
+import { ApiError } from "../types/Apierror.js";
 
 export default function BiddingPage() {
   const params = useParams();

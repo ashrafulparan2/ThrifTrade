@@ -12,11 +12,9 @@ import './index.css'
 
 import { HelmetProvider } from 'react-helmet-async'
 import './index.css'
+import Buy from './pages/buyFolder/Buy.js'
 import HomePage from './pages/HomePage.js'
 import ProductPage from './pages/ProductPage.js'
-// import Login from "./pages/Login.js";
-import Buy from './pages/buyFolder/Buy.js'
-// import About from "./pages/AboutUs.js";
 
 import { PayPalScriptProvider } from '@paypal/react-paypal-js'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
@@ -30,20 +28,21 @@ import PaymentMethodPage from './pages/PaymentMethodPage.js'
 import PlaceOrderPage from './pages/PlaceOrderPage.js'
 import Sell from './pages/Sell.js'
 import ShippingAddressPage from './pages/ShippingAddressPage.js'
-// import SigninPage from './pages/SignInPage.js'
 import SignupPage from './pages/SignupPage.js'
 import { StoreProvider } from './Store.js'
-// import {CartPage} from './pages/CartPage.js';
 
 import AboutUs from './pages/AboutUs.js'
-import BiddingPage from './pages/BiddingPage.js'
-import OfferPage from './pages/OfferPage.js'
-import ProfilePage from './pages/ProfilePage.js'
-import Phone from './pages/Phone.js'
-import Laptop from './pages/Laptop.js'
-import Watch from './pages/Watch.js'
-import SigninPage from './pages/SigninPage.js'
+import AddBid from './pages/AddBid.js'
 import Airbuds from './pages/Airbuds.js'
+import BiddingPage from './pages/BiddingPage.js'
+import Laptop from './pages/Laptop.js'
+import OfferPage from './pages/OfferPage.js'
+import Phone from './pages/Phone.js'
+import Price from './pages/Price.js'
+import PriceUp from './pages/PriceUp.js'
+import ProfilePage from './pages/ProfilePage.js'
+import SigninPage from './pages/SigninPage.js'
+import Watch from './pages/Watch.js'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -59,7 +58,9 @@ const router = createBrowserRouter(
       <Route path="watch" element={<Watch />} />
       <Route path="airbuds" element={<Airbuds />} />
       <Route path="sell" element={<Sell />} />
+
       <Route path="" element={<ProtectedRoute />}>
+        <Route path="/addbid" element={<AddBid />} />
         <Route path="shipping" element={<ShippingAddressPage />} />
         <Route path="payment" element={<PaymentMethodPage />} />
         <Route path="placeorder" element={<PlaceOrderPage />} />
@@ -68,6 +69,8 @@ const router = createBrowserRouter(
 
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/auction" element={<Auction />} />
+        <Route path="/price" element={<Price />} />
+        <Route path="/priceup" element={<PriceUp />} />
 
         <Route path="/auction/:slug" element={<BiddingPage />} />
         <Route path="/offers" element={<OfferPage />} />
