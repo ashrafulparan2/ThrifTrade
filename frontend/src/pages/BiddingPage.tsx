@@ -22,7 +22,7 @@ export default function BiddingPage() {
     error,
   } = useGetProductDetailsBySlugQuery(slug!);
   const { state, dispatch } = useContext(Store);
-  const { cart } = state;
+  const { cart,userInfo } = state;
 
   const navigate = useNavigate();
   const [bidPrice, setBidPrice] = useState(0);
@@ -179,7 +179,7 @@ export default function BiddingPage() {
                         )) || (
                           <p>
                             Dead Line is over.{" \n"}
-                            {bidData.maxBidUser && bidData.maxBidUser['name']} won the bid with ${bidData.maxBid}
+                            {bidData.maxBidUser && bidData.maxBidUser['name']} won the bid with ${bidData.maxBid} || Deadline is over
                           </p>
                         )}
                         <div className="d-grid">
@@ -187,11 +187,12 @@ export default function BiddingPage() {
                             <Button onClick={placeBidHandler} variant="primary">
                               Place a Bid
                             </Button>
-                          )) || (
+                          )) || bidData.maxBidUser && userInfo?.email===bidData.maxBidUser['email'] && (
                             <Button onClick={placeBidHandler} variant="primary">
                               Claim your product
                             </Button>
-                          )}
+                          ) ||( <p>You lost the bid.
+                             </p> )}
                         </div>
                       </ListGroup.Item>
                     )}

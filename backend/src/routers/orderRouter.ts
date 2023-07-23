@@ -36,6 +36,7 @@ orderRouter.post(
     if (req.body.orderItems.length === 0) {
       res.status(400).json({ message: 'Cart is empty' })
     } else {
+      console.log(req.body.orderItems)
       const createdOrder = await OrderModel.create({
         orderItems: req.body.orderItems.map((x: Product) => ({
           ...x,

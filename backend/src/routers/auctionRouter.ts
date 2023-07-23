@@ -1,8 +1,10 @@
-import express from 'express'
+import express, {NextFunction, Request, Response} from 'express'
 import asyncHandler from 'express-async-handler'
-import { ProductModel } from '../models/productModel'
-import { sampleProducts } from "../data";
-import { User } from "../models/userModel";
+import {ProductModel} from '../models/productModel'
+import {sampleProducts} from "../data";
+import {User, UserModel} from "../models/userModel";
+import {AuctionModel} from "../models/auctionModel";
+import {isAuth} from "../utils";
 // import auction_data from '../auction_data.json'
 
 export const auctionRouter = express.Router()
@@ -11,7 +13,7 @@ const tempAuctionData = sampleProducts.map((product) => {
     return {
         product,
         auctionData: {
-            deadline: Date.now()+100000,
+            deadline: Date.now() + 100000,
             maxBid: 0,
             maxBidUser: User,
         }
@@ -19,38 +21,65 @@ const tempAuctionData = sampleProducts.map((product) => {
 })
 auctionRouter.get(
     '/get_bid_data/:slug',
-    (req, res) => {
-        console.log(req.params.slug)
-        
-        tempAuctionData.forEach((auction, idx) => {
-            if (tempAuctionData[idx].product.slug === req.params.slug) {
-                console.log(tempAuctionData[idx].auctionData)
-                return res.status(200).json(tempAuctionData[idx].auctionData);
-            }
+    isAuth,
+    asyncHandler(async (req: Request, res: Response) => {
+        console.log(req.params.slug);
+        const product = await ProductModel.findOne({ slug: req.body.slug });
+        const auction_data = await AuctionModel.findOne({
+            product: product?._id
         })
-        return res.status(400).json({ message: "Wrong Product" });
-    }
+        console.log(auction_data);
+        if (auction_data) {
+            res.status(200).send({AuctionData: auction_data})
+        } else {
+            res.status(400).send({message: "Auction Data Not Found"})
+        }
+    })
 )
 
 auctionRouter.post(
     '/make_bid',
-    (req, res) => {
-        // console.log(tempAuctionData)
-        console.log(Number.parseFloat(req.body.bidPrice))
+    asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            const auction_data = await AuctionModel.findOne({productSlug: req.body.slug});
 
-        tempAuctionData.forEach((auction, idx) => {
-            if (tempAuctionData[idx].product.slug === req.body.slug) {
-                if (tempAuctionData[idx].auctionData.maxBid < Number.parseFloat(req.body.bidPrice)) {
-                    tempAuctionData[idx].auctionData.maxBid = Number.parseFloat(req.body.bidPrice);
-                    tempAuctionData[idx].auctionData.maxBidUser = req.body.user;
-                    console.log(tempAuctionData[idx])
-                    return res.status(200).json({ message: "Bid Placed" });
+            const isBidPlaced = {
+                status: 400,
+                data: {
+                    message: "Bid Not Placed"
+                }
+            };
+
+            if (auction_data) {
+                const deadline = new Date(auction_data.deadline);
+                const now = new Date();
+
+                if (now < deadline) {
+                    const maxBid = auction_data.maxBid!;
+
+                    if (maxBid < Number.parseFloat(req.body.bidPrice)) {
+                        const user_data = await UserModel.findOne({email: req.body.user.email});
+                        if (user_data) {
+                            if (user_data.balance < Number.parseFloat(req.body.bidPrice)) {
+                                isBidPlaced.data.message= "Insufficient Balance";
+                            } else {
+                                auction_data.maxBid = Number.parseFloat(req.body.bidPrice);
+                                auction_data.maxBidUser = user_data;
+                                await auction_data.save();
+                            }
+                        }
+                    }
+                }else{
+                    isBidPlaced.data.message= "Auction Deadline Passed";
                 }
             }
-        })
-        return res.status(400).json({ message: "Bid Not Placed" });
-    }
-)
+            res.status(isBidPlaced.status).json(isBidPlaced.data);
+        } catch (err) {
+            next(err);
+        }
+    })
+);
+
 
 // auctionRouter.get(
 //     '/get_auction_data',
