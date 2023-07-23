@@ -16,8 +16,11 @@ export class AuctionData {
     @prop({ ref: User })
     public maxBidUser?: Ref<User>
 
-    @prop( { required: true , default: Date.now() + 60*60*1000 })
-    public deadline!: Date
+    @prop( { required: true})
+    public deadline!: number
+
+    @prop({ required: false, default: false })
+    public isEndProcessDone?: boolean
 }
 
 export const AuctionModel = getModelForClass(AuctionData)
