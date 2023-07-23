@@ -1,60 +1,175 @@
-import express from 'express'
+import express, {NextFunction, Request, Response} from 'express'
 import asyncHandler from 'express-async-handler'
-import { ProductModel } from '../models/productModel'
-import { sampleProducts } from "../data";
-import { User } from "../models/userModel";
+import {ProductModel} from '../models/productModel'
+import {sampleProducts} from "../data";
+import {User, UserModel} from "../models/userModel";
+import {AuctionData, AuctionModel} from "../models/auctionModel";
+import {isAuth} from "../utils";
 // import auction_data from '../auction_data.json'
 
 export const auctionRouter = express.Router()
-// /api/prodcuts
-const tempAuctionData = sampleProducts.map((product) => {
-    return {
-        product,
-        auctionData: {
-            deadline: Date.now()+100000,
-            maxBid: 0,
-            maxBidUser: User,
-        }
-    }
-})
+
 auctionRouter.get(
     '/get_bid_data/:slug',
-    (req, res) => {
-        console.log(req.params.slug)
-        
-        tempAuctionData.forEach((auction, idx) => {
-            if (tempAuctionData[idx].product.slug === req.params.slug) {
-                console.log(tempAuctionData[idx].auctionData)
-                return res.status(200).json(tempAuctionData[idx].auctionData);
+    asyncHandler(async (req: Request, res: Response) => {
+        try {
+            // console.log(req.params.slug);
+            const product = await ProductModel.findOne({slug: req.params.slug});
+            if (!product) {
+                throw new Error("Product Not Found")
             }
-        })
-        return res.status(400).json({ message: "Wrong Product" });
-    }
+            const auction_data = await AuctionModel.findOne({
+                product: {
+                    _id: product._id
+                }
+            }).populate('product').populate('maxBidUser');
+
+            if (!auction_data) {
+                throw new Error("Auction Data Not Found")
+            }
+            const deadline = auction_data.deadline;
+            const now = Date.now();
+            if (now > deadline && auction_data.isEndProcessDone === false) {
+                await Promise.all([
+                    ProductModel.findByIdAndUpdate(product._id, {price: auction_data.maxBid}),
+                    AuctionModel.findByIdAndUpdate(auction_data._id, {isEndProcessDone: true})
+                ])
+            }
+            res.status(200).send({AuctionData: auction_data})
+        } catch (e) {
+
+            res.status(400).send({message: e})
+        }
+    })
 )
 
 auctionRouter.post(
     '/make_bid',
-    (req, res) => {
-        // console.log(tempAuctionData)
-        console.log(Number.parseFloat(req.body.bidPrice))
-
-        tempAuctionData.forEach((auction, idx) => {
-            if (tempAuctionData[idx].product.slug === req.body.slug) {
-                if (tempAuctionData[idx].auctionData.maxBid < Number.parseFloat(req.body.bidPrice)) {
-                    tempAuctionData[idx].auctionData.maxBid = Number.parseFloat(req.body.bidPrice);
-                    tempAuctionData[idx].auctionData.maxBidUser = req.body.user;
-                    console.log(tempAuctionData[idx])
-                    return res.status(200).json({ message: "Bid Placed" });
-                }
+    isAuth,
+    asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            console.log(req.body);
+            const product = await ProductModel.findOne({slug: req.body.slug});
+            if (!product) {
+                throw new Error("Product Not Found")
             }
-        })
-        return res.status(400).json({ message: "Bid Not Placed" });
-    }
+            const auction_data = await AuctionModel.findOne({
+                product: {
+                    _id: product._id
+                }
+            });
+            if (!auction_data) {
+                throw new Error("Auction Data Not Found")
+            }
+            console.log(auction_data);
+            const deadline = new Date(auction_data.deadline);
+            const now = new Date();
+
+            if (now > deadline) {
+                throw new Error("Deadline Passed")
+            }
+            const maxBid = auction_data.maxBid!;
+            console.log(maxBid);
+
+            if (maxBid > Number.parseFloat(req.body.bidPrice)) {
+                throw new Error("Bid Price is less than max bid")
+            }
+            const user_data = await UserModel.findOne({email: req.user.email});
+
+            if (!user_data) {
+                throw new Error("User Not Found")
+            }
+            const update_auction_data = await AuctionModel.updateOne({_id: auction_data._id}, {
+                maxBid: Number.parseFloat(req.body.bidPrice),
+                maxBidUser: user_data._id
+            })
+            console.log(update_auction_data);
+            // auction_data.set('maxBid', Number.parseFloat(req.body.bidPrice));
+// = Number.parseFloat(req.body.bidPrice);
+//             auction_data.set('maxBidUser', user_data);
+            // auction_data.maxBidUser = user_data;
+            // await auction_data.save();
+
+
+            res.status(201).json({message: "Bid Placed Successfully"});
+        } catch (err) {
+            console.log(err);
+            res.status(400).json({message: err});
+        }
+    })
+);
+
+auctionRouter.post(
+    '/add_to_auction',
+    isAuth,
+    asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
+        const {product_slug, deadline} = req.body;
+        try {
+            const [product_data, user_data] = await Promise.all([
+                ProductModel.findOne({slug: product_slug}),
+                UserModel.findOne({email: req.user.email}),
+                ProductModel.updateOne({slug: product_slug}, {is_auction: true})
+            ]);
+            if (!user_data) {
+                throw new Error("User Not Found");
+            }
+            if (user_data.isAdmin === false) {
+                throw new Error("You are not Admin")
+            }
+            if (!product_data) {
+                throw new Error("Product Not Found");
+            }
+            const auction_data = await AuctionModel.create({
+                product: product_data,
+                deadline: deadline,
+                maxBid: 0,
+            });
+            res.status(200).json({message: "Auction Created Successfully", auction_data});
+        } catch (e) {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            res.status(400).json({message: e['message']});
+        }
+    })
+)
+auctionRouter.get(
+    '/get_auction_products',
+    asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            const auction_data = await AuctionModel.find().populate('product');
+            res.status(200).json(auction_data);
+        } catch (e) {
+            next(e);
+        }
+    })
 )
 
-// auctionRouter.get(
-//     '/get_auction_data',
-//     (req, res) => {
+auctionRouter.get(
+    '/end_auction/:slug',
+    asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
+        try {
 
-//     }
-// )
+            const product = await ProductModel.findOne({slug: req.params.slug});
+            if (!product) {
+                throw new Error("Product Not Found")
+            }
+            const auction_data = await AuctionModel.findOne({
+                product: {
+                    _id: product._id
+                }
+            });
+
+            if (!auction_data) {
+                throw new Error("Auction Data Not Found")
+            }
+            const now = Date.now();
+            auction_data.set('deadline', now);
+            await auction_data.save();
+            res.status(200).send({AuctionData: auction_data})
+        } catch (e) {
+
+            res.status(400).send({message: e})
+        }
+    })
+)
+

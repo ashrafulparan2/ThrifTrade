@@ -7,6 +7,7 @@ export type Product = {
     brand: string
     price: number
     countInStock: number
+    is_auction: boolean
     description: string
     rating: number
     numReviews: number

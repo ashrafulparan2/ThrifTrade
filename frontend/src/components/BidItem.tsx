@@ -7,7 +7,7 @@ import { CartItem } from '../types/Cart.js'
 import { Product } from '../types/Product.js'
 import Rating from './Rating.js'
 
-function BidItem({ product }: { product: Product }) {
+function BidItem({ product,add_to_auction }: { product: Product, add_to_auction: (slug: string) => void }) {
   const { state, dispatch } = useContext(Store)
   const {
     cart: { cartItems },
@@ -57,7 +57,7 @@ function BidItem({ product }: { product: Product }) {
             Out of stock
           </Button>
         ) : (
-          <Button className="offer-button">Add To Auction</Button>
+          <Button className="offer-button" onClick={()=>add_to_auction(product.slug)}>Add To Auction</Button>
         )}
       </Card.Body>
     </Card>

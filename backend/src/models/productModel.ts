@@ -28,6 +28,9 @@ export class Product {
   @prop({ required: true, default: 0 })
   public countInStock!: number
 
+  @prop({ required: true, default: false })
+  public is_auction!: boolean
+
   @prop({ required: true, default: 0 })
   public rating!: number
 
