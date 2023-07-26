@@ -48,7 +48,7 @@ auctionRouter.post(
     isAuth,
     asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
         try {
-            console.log(req.body);
+            // console.log(req.body);
             const product = await ProductModel.findOne({slug: req.body.slug});
             if (!product) {
                 throw new Error("Product Not Found")
@@ -61,7 +61,7 @@ auctionRouter.post(
             if (!auction_data) {
                 throw new Error("Auction Data Not Found")
             }
-            console.log(auction_data);
+            // console.log(auction_data);
             const deadline = new Date(auction_data.deadline);
             const now = new Date();
 
@@ -69,13 +69,14 @@ auctionRouter.post(
                 throw new Error("Deadline Passed")
             }
             const maxBid = auction_data.maxBid!;
-            console.log(maxBid);
+            // console.log(maxBid);
 
             if (maxBid > Number.parseFloat(req.body.bidPrice)) {
                 throw new Error("Bid Price is less than max bid")
             }
+            // console.log("req",req.user)
             const user_data = await UserModel.findOne({email: req.user.email});
-
+            // console.log("database",user_data)
             if (!user_data) {
                 throw new Error("User Not Found")
             }
@@ -93,8 +94,9 @@ auctionRouter.post(
 
             res.status(201).json({message: "Bid Placed Successfully"});
         } catch (err) {
-            console.log(err);
-            res.status(400).json({message: err});
+            // console.log(err);
+            next(err)
+            // res.status(400).json({message: err});
         }
     })
 );
@@ -113,7 +115,7 @@ auctionRouter.post(
             if (!user_data) {
                 throw new Error("User Not Found");
             }
-            if (user_data.isAdmin === false) {
+            if (!user_data.isAdmin) {
                 throw new Error("You are not Admin")
             }
             if (!product_data) {
@@ -146,6 +148,7 @@ auctionRouter.get(
 
 auctionRouter.get(
     '/end_auction/:slug',
+    isAuth,
     asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
         try {
 
@@ -153,14 +156,20 @@ auctionRouter.get(
             if (!product) {
                 throw new Error("Product Not Found")
             }
-            const auction_data = await AuctionModel.findOne({
-                product: {
-                    _id: product._id
-                }
-            });
+            // UserModel.findOne({email: req.user.email}),
+            const [auction_data,user_data] = await Promise.all([
+                AuctionModel.findOne({product: {_id: product._id}}),
+                UserModel.findOne({email: req.user.email})
+            ]);
 
             if (!auction_data) {
                 throw new Error("Auction Data Not Found")
+            }
+            if (!user_data) {
+                throw new Error("User Not Found");
+            }
+            if (!user_data.isAdmin) {
+                throw new Error("You are not Admin")
             }
             const now = Date.now();
             auction_data.set('deadline', now);
@@ -168,7 +177,9 @@ auctionRouter.get(
             res.status(200).send({AuctionData: auction_data})
         } catch (e) {
 
-            res.status(400).send({message: e})
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            res.status(400).send({message: e['message']})
         }
     })
 )

@@ -40,14 +40,16 @@ orderRouter.post(
         let totalPrice = 0;
         for (let idx = 0; idx < orderItems.length; idx++) {
             const item = orderItems[idx];
+            // console.log(item['_id'])
+            // ProductModel.findOne({slug: item['_id']})
             const [product_data, auction_data] = await Promise.all([
                 ProductModel.findById(item['_id']),
-                AuctionModel.findById(item['_id']).populate('maxBidUser')
+                AuctionModel.findOne({product: {_id: item['_id']}}).populate('maxBidUser')
             ]);
             if (!product_data) {
                 throw new Error("Product Not Found")
             }
-            console.log(Number.parseInt(orderItems[idx].quantity) * product_data.price)
+            // console.log(Number.parseInt(orderItems[idx].quantity) * product_data.price)
             totalPrice += Number.parseInt(orderItems[idx].quantity) * product_data.price;
             if (!!auction_data && product_data.is_auction) {
                 const deadline = new Date(auction_data.deadline);
@@ -68,28 +70,29 @@ orderRouter.post(
         }
 
 
-        console.log(totalPrice);
-        res.send({orderItems, totalPrice});
+        // console.log(totalPrice);
+        // res.send({orderItems, totalPrice});
 
 
         if (req.body.orderItems.length === 0) {
-          res.status(400).json({ message: 'Cart is empty' })
+            res.status(400).json({message: 'Cart is empty'})
         } else {
-          console.log(req.body.orderItems)
-          const createdOrder = await OrderModel.create({
-            orderItems: req.body.orderItems.map((x: Product) => ({
-              ...x,
-              product: x._id,
-            })),
-            shippingAddress: req.body.shippingAddress,
-            paymentMethod: req.body.paymentMethod,
-            itemsPrice: totalPrice,
-            shippingPrice: req.body.shippingPrice,
-            taxPrice: req.body.taxPrice,
-            totalPrice: req.body.totalPrice,
-            user: req.user._id,
-          } as Order )
-          res.status(201).json({ message: 'Order Created', order: createdOrder })
+            console.log(req.body.orderItems)
+            const createdOrder = await OrderModel.create({
+                orderItems: req.body.orderItems.map((x: Product) => ({
+                    ...x,
+                    product: x._id,
+                })),
+                shippingAddress: req.body.shippingAddress,
+                paymentMethod: req.body.paymentMethod,
+                itemsPrice: totalPrice,
+                shippingPrice: req.body.shippingPrice,
+                taxPrice: req.body.taxPrice,
+                totalPrice: req.body.totalPrice,
+                user: req.user._id,
+            } as Order)
+            console.log(createdOrder)
+            res.status(201).json({message: 'Order Created', order: createdOrder})
         }
     })
 )
