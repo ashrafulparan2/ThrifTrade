@@ -39,8 +39,10 @@ export default function PlaceOrderPage() {
         totalPrice: cart.totalPrice,
       })
       console.log(data)
+      console.log(data.message)
       dispatch({ type: 'CART_CLEAR' })
       localStorage.removeItem('cartItems')
+      console.log(data.order._id);
       navigate(`/order/${data.order._id}`)
     } catch (err) {
       toast.error(getError(err as ApiError))
