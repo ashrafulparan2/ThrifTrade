@@ -638,3 +638,14 @@ a {
   border-bottom: 10px solid transparent;
   border-left: 20px solid #333; /* You can change the color to your desired arrow color */
 }
+
+
+/* membership page */
+.membershipcolor
+{
+  color: #c29800;
+}
+
+.membership-image{
+  height: 500px;
+}
