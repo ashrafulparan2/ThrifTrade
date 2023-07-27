@@ -78,8 +78,8 @@ const router = createBrowserRouter(
         <Route path="/auction/:slug" element={<BiddingPage />} />
         <Route path="/offers" element={<OfferPage />} />
         <Route path="/membership" element={<MembershipPage />} />
-        <Route path="/membershiporder" element={<MembershipOrder />} />
-        <Route path="/membershiporderpage" element={<MembershipOrderPage />} />
+        {/* <Route path="/membershiporder" element={<MembershipOrder />} /> */}
+        {/* <Route path="/membershiporderpage" element={<MembershipOrderPage />} /> */}
       </Route>
 
       <Route path="about_us" element={<AboutUs />} />
