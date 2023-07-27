@@ -63,6 +63,7 @@ function App() {
               <Nav.Link href="/offers">Offers</Nav.Link>
               <Nav.Link href="/auction">Auction</Nav.Link>
 
+
               {/* <Nav.Link href="/categories">Categories</Nav.Link> */}
               <NavDropdown
                 title="Categories"
@@ -87,6 +88,7 @@ function App() {
                   Airbuds
                 </Link>
               </NavDropdown>
+              <Nav.Link className="membershipcolor" href="/membership">Gold Card</Nav.Link>
 
               <Nav.Link href="/about_us">About Us</Nav.Link>
             </Nav>

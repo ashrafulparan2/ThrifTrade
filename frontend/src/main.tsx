@@ -43,6 +43,9 @@ import PriceUp from './pages/PriceUp.js'
 import ProfilePage from './pages/ProfilePage.js'
 import SigninPage from './pages/SigninPage.js'
 import Watch from './pages/Watch.js'
+import MembershipPage from './pages/MembershipPage.js'
+import MembershipOrder from './pages/MembershipOrder.js'
+import MembershipOrderPage from './pages/MembershipOrderPage.js'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -74,6 +77,9 @@ const router = createBrowserRouter(
 
         <Route path="/auction/:slug" element={<BiddingPage />} />
         <Route path="/offers" element={<OfferPage />} />
+        <Route path="/membership" element={<MembershipPage />} />
+        <Route path="/membershiporder" element={<MembershipOrder />} />
+        <Route path="/membershiporderpage" element={<MembershipOrderPage />} />
       </Route>
 
       <Route path="about_us" element={<AboutUs />} />
