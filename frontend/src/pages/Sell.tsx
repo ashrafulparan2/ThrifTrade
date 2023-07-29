@@ -81,7 +81,7 @@ const SellPage = () => {
   }
 
   const upazillasForSelectedDistrict = selectedDistrict
-    ? upazillas[selectedDistrict]
+    ? upazillas[selectedDistrict as keyof typeof upazillas]
     : []
 
   return (
