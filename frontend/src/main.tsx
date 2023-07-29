@@ -46,6 +46,7 @@ import Watch from './pages/Watch.js'
 import MembershipPage from './pages/MembershipPage.js'
 import MembershipOrder from './pages/MembershipOrder.js'
 import MembershipOrderPage from './pages/MembershipOrderPage.js'
+import SellConfirmation from './pages/SellConfirmation.js'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -61,6 +62,7 @@ const router = createBrowserRouter(
       <Route path="watch" element={<Watch />} />
       <Route path="airbuds" element={<Airbuds />} />
       <Route path="sell" element={<Sell />} />
+      <Route path="sellconfirm" element={<SellConfirmation />} />
 
       <Route path="" element={<ProtectedRoute />}>
         <Route path="/addbid" element={<AddBid />} />
