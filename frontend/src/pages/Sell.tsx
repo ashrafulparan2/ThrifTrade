@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Button, Col, Form, Row } from 'react-bootstrap'
 import PhoneInput from 'react-phone-number-input'
 import 'react-phone-number-input/style.css'
+import { useNavigate } from 'react-router-dom'
 import './SellPage.css' // Import the CSS file for styling
 
 const districts = [
@@ -39,6 +40,8 @@ const SellPage = () => {
   const [selectedDistrict, setSelectedDistrict] = useState('')
   const [selectedUpazilla, setSelectedUpazilla] = useState('')
 
+  const navigate = useNavigate()
+
   const handleDistrictChange = (
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {
@@ -50,6 +53,10 @@ const SellPage = () => {
   ) => {
     setSelectedUpazilla(event.target.value)
   }
+
+  // const submitHandler=()=>{
+  //   window.location.href = '/sellconfirm/'
+  // }
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -70,10 +77,11 @@ const SellPage = () => {
       productDetails,
       productPicture,
     })
+    navigate('/sellconfirm')
   }
 
   const upazillasForSelectedDistrict = selectedDistrict
-    ? upazillas[selectedDistrict]
+    ? upazillas[selectedDistrict as keyof typeof upazillas]
     : []
 
   return (
@@ -87,16 +95,18 @@ const SellPage = () => {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
+              required
             />
           </Form.Group>
           <Form.Group controlId="address">
-            <Form.Label >Address</Form.Label>
+            <Form.Label>Address</Form.Label>
             <Row>
               <Col sm={6}>
                 <Form.Control
                   as="select"
                   value={selectedDistrict}
                   onChange={handleDistrictChange}
+                  required
                 >
                   <option value="">Select District</option>
                   {districts.map((district) => (
@@ -111,6 +121,7 @@ const SellPage = () => {
                   as="select"
                   value={selectedUpazilla}
                   onChange={handleUpazillaChange}
+                  required
                 >
                   <option value="">Select Upazilla</option>
                   {upazillasForSelectedDistrict.map((upazilla) => (
@@ -129,6 +140,7 @@ const SellPage = () => {
               type="text"
               value={address}
               onChange={(e) => setAddress(e.target.value)}
+              required
             />
           </Form.Group>
           <Form.Group controlId="phoneNumber">
@@ -138,6 +150,7 @@ const SellPage = () => {
               defaultCountry="BD"
               value={phoneNumber}
               onChange={setPhoneNumber}
+              required
             />
           </Form.Group>
           <Form.Group controlId="productName">
@@ -146,6 +159,7 @@ const SellPage = () => {
               type="text"
               value={productName}
               onChange={(e) => setProductName(e.target.value)}
+              required
             />
           </Form.Group>
           <Form.Group controlId="productQuantity">
@@ -154,6 +168,7 @@ const SellPage = () => {
               type="text"
               value={productQuantity}
               onChange={(e) => setProductQuantity(e.target.value)}
+              required
             />
           </Form.Group>
           <Form.Group controlId="unitPrice">
@@ -162,6 +177,7 @@ const SellPage = () => {
               type="text"
               value={unitPrice}
               onChange={(e) => setUnitPrice(e.target.value)}
+              required
             />
           </Form.Group>
           <Form.Group controlId="condition">
@@ -170,6 +186,7 @@ const SellPage = () => {
               type="text"
               value={condition}
               onChange={(e) => setCondition(e.target.value)}
+              required
             />
           </Form.Group>
           <Form.Group controlId="productDetails">
@@ -178,6 +195,7 @@ const SellPage = () => {
               as="textarea"
               value={productDetails}
               onChange={(e) => setProductDetails(e.target.value)}
+              required
             />
           </Form.Group>
           <Form.Group controlId="productPicture">
@@ -189,6 +207,7 @@ const SellPage = () => {
                   setProductPicture(URL.createObjectURL(e.target.files[0]))
                 }
               }}
+              required
             />
             {productPicture && (
               <img

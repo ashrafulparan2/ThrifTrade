@@ -649,3 +649,28 @@ a {
 .membership-image{
   height: 500px;
 }
+
+/* src/RequestReceived.css */
+.request-received-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.message-box {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  max-width: 400px;
+  width: 90%;
+}
+
+.message {
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: center;
+  margin: 0;
+}
