@@ -647,7 +647,12 @@ a {
 }
 
 .membership-image{
-  height: 500px;
+  height: 700px;
+}
+
+.badge-membership{
+  
+  background: #a60f22;
 }
 
 /* src/RequestReceived.css */
