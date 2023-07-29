@@ -4,7 +4,7 @@ import PhoneInput from 'react-phone-number-input'
 import 'react-phone-number-input/style.css'
 import { useNavigate } from 'react-router-dom'
 import './SellPage.css' // Import the CSS file for styling
-
+import {useDispatch} from 'react-redux'
 const districts = [
   'Dhaka',
   'Chittagong',
