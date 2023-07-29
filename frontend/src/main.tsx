@@ -47,6 +47,7 @@ import MembershipPage from './pages/MembershipPage.js'
 import MembershipOrder from './pages/MembershipOrder.js'
 import MembershipOrderPage from './pages/MembershipOrderPage.js'
 import SellConfirmation from './pages/SellConfirmation.js'
+import Feedback from './pages/Feedback.js'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -85,6 +86,7 @@ const router = createBrowserRouter(
       </Route>
 
       <Route path="about_us" element={<AboutUs />} />
+      <Route path="feedback" element={<Feedback />} />
       {/* <Route path="dashboard" element={<Dashboard />} /> */}
       {/* ... etc. */}
     </Route>
