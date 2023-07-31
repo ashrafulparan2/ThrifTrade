@@ -56,7 +56,7 @@ const router = createBrowserRouter(
       <Route path="product/:slug" element={<ProductPage />} />
       <Route path="/signin" element={<SigninPage />} />
       <Route path="signup" element={<SignupPage />} />
-      <Route path="cart" element={<CartPage />} />
+      
       <Route path="buy" element={<Buy />} />
       <Route path="phone" element={<Phone />} />
       <Route path="laptop" element={<Laptop />} />
@@ -66,6 +66,7 @@ const router = createBrowserRouter(
       <Route path="sellconfirm" element={<SellConfirmation />} />
 
       <Route path="" element={<ProtectedRoute />}>
+      <Route path="cart" element={<CartPage />} />
         <Route path="/addbid" element={<AddBid />} />
         <Route path="shipping" element={<ShippingAddressPage />} />
         <Route path="payment" element={<PaymentMethodPage />} />

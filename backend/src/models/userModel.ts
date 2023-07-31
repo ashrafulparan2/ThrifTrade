@@ -11,6 +11,9 @@ export class User {
   @prop({ required: true, default: false })
   public isAdmin!: boolean
 
+  @prop({ required: true, default: false})
+  public isGoldMember!: boolean
+
   @prop({ required:true, default: 0 })
   public balance!: number
 }
