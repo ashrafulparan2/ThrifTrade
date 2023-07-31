@@ -13,7 +13,7 @@ export default function MembershipPage(){
                 alt="main banner"
               />
               <div className="main-banner-content position-absolute">
-                <Link to={'/membershiporder/'}>
+                <Link to={'/product/gold-card'}>
                   <h3>
                 <Button className="offer-button">Buy Now</Button >
                 </h3>
