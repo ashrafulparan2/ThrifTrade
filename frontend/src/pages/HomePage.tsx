@@ -128,11 +128,11 @@ export default function HomePage() {
                   <h4>SUPERCHARGED FOR PROS.</h4>
                   <h5>iPad S13+ Pro.</h5>
                   <p>From $999.00 or $41.62/mo.</p>
-                  <Link to={'/product/'}>
+                  {/* <Link to={'/product/'}> */}
                     <h3>
                   <Badge bg="secondary">Buy Now</Badge>
                   </h3>
-                  </Link>
+                  {/* </Link> */}
                 </div>
             </div>
           </div>
