@@ -91,6 +91,31 @@ const Filter: React.FC = () => {
 
   };
 
+  const handleChangeRatingDown = (event: React.ChangeEvent<HTMLInputElement>) => {
+    // Handle filter change
+    
+    window.location.href = '/rating'
+
+  };
+  const handleChangeRatingUp = (event: React.ChangeEvent<HTMLInputElement>) => {
+    // Handle filter change
+    
+    window.location.href = '/ratingup'
+
+  };
+  const handleChangeBest = (event: React.ChangeEvent<HTMLInputElement>) => {
+    // Handle filter change
+    
+    window.location.href = '/bestseller'
+
+  };
+  const handleChangeTrending = (event: React.ChangeEvent<HTMLInputElement>) => {
+    // Handle filter change
+    
+    window.location.href = '/trending'
+
+  };
+
   return (
     <FilterContainer>
       <FilterLabel>Filters:</FilterLabel>
@@ -126,6 +151,30 @@ const Filter: React.FC = () => {
         
       <FontAwesomeIcon icon={faArrowUp} />
       </OptionLabel>
+      <OptionLabel>
+        <FilterCheckbox type="checkbox" onChange={handleChangeRatingDown} />
+        <div>Rating </div>
+        
+      <FontAwesomeIcon icon={faArrowDown} />
+      </OptionLabel>
+      <OptionLabel>
+        <FilterCheckbox type="checkbox" onChange={handleChangeRatingUp} />
+        <div>Rating </div>
+        
+      <FontAwesomeIcon icon={faArrowUp} />
+      </OptionLabel>
+
+      <OptionLabel>
+        <FilterCheckbox type="checkbox" onChange={handleChangeBest} />
+        <div>Best Seller </div>
+        
+      </OptionLabel>
+      <OptionLabel>
+        <FilterCheckbox type="checkbox" onChange={handleChangeTrending} />
+        <div>Trending </div>
+        
+      </OptionLabel>
+
     </FilterContainer>
   );
 };
