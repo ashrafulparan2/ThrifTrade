@@ -17,6 +17,7 @@ userRouter.post(
           name: user.name,
           email: user.email,
           isAdmin: user.isAdmin,
+          isGoldMember: user.isGoldMember,
           token: generateToken(user),
         })
         return
@@ -39,6 +40,7 @@ userRouter.post(
       name: user.name,
       email: user.email,
       isAdmin: user.isAdmin,
+      isGoldMember: user.isGoldMember,
       token: generateToken(user),
     })
   })
@@ -61,6 +63,7 @@ userRouter.put(
         name: updatedUser.name,
         email: updatedUser.email,
         isAdmin: updatedUser.isAdmin,
+        isGoldMember: user.isGoldMember,
         token: generateToken(updatedUser),
       })
       return

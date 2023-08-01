@@ -649,6 +649,50 @@ a {
 .membership-image{
   height: 700px;
 }
+.membership-card-message {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.membership-card-message h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.membership-card-message p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.membership-card-message a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+.membership-card-message a:hover {
+  background-color: #0056b3;
+}
+.membership-card-message {
+  /* ... Other styles as before ... */
+  perspective: 1000px;
+  transition: transform 0.5s;
+}
+
+.membership-card-message:hover {
+  transform: rotateY(20deg);
+}
+
 
 .badge-membership{
   
