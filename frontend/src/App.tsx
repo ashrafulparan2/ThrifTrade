@@ -1,4 +1,4 @@
-import { SetStateAction, useContext, useEffect, useState } from 'react'
+import { SetStateAction, useContext, useEffect, useState } from "react";
 import {
   Badge,
   Button,
@@ -7,45 +7,46 @@ import {
   Nav,
   NavDropdown,
   Navbar,
-} from 'react-bootstrap'
-import { Link, Outlet } from 'react-router-dom'
-import { ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
-import { Store } from './Store.js'
-import Footer from './components/footer/Footer.js'
-import { sampleProducts } from './data.js'
+} from "react-bootstrap";
+import { Link, Outlet } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Store } from "./Store.js";
+import Footer from "./components/footer/Footer.js";
+import { sampleProducts } from "./data.js";
 
 function App() {
   const {
     state: { mode, cart, userInfo },
     dispatch,
-  } = useContext(Store)
+  } = useContext(Store);
 
   useEffect(() => {
-    document.body.setAttribute('data-bs-theme', mode)
-  }, [mode])
+    document.body.setAttribute("data-bs-theme", mode);
+  }, [mode]);
   const switchModeHandler = () => {
-    dispatch({ type: 'SWITCH_MODE' })
-  }
+    dispatch({ type: "SWITCH_MODE" });
+  };
   const signoutHandler = () => {
-    dispatch({ type: 'USER_SIGNOUT' })
-    localStorage.removeItem('userInfo')
-    localStorage.removeItem('cartItems')
-    localStorage.removeItem('shippingAddress')
-    localStorage.removeItem('paymentMethod')
-    window.location.href = '/signin'
-  }
-  const [value, setValue] = useState('')
+    dispatch({ type: "USER_SIGNOUT" });
+    localStorage.removeItem("userInfo");
+    localStorage.removeItem("cartItems");
+    localStorage.removeItem("shippingAddress");
+    localStorage.removeItem("paymentMethod");
+    window.location.href = "/signin";
+  };
+  const [value, setValue] = useState("");
   const onChange = (event: { target: { value: SetStateAction<string> } }) => {
-    setValue(event.target.value)
-  }
+    setValue(event.target.value);
+  };
   const onSearch = (searchTerm) => {
-    setValue(searchTerm)
+    setValue(searchTerm);
     //api.search
 
-    window.location.href = '/product/' + searchTerm
-  }
+    window.location.href = "/product/" + searchTerm;
+  };
 
+  const isAdmin = userInfo && userInfo.isAdmin;
   return (
     <div className="d-flex flex-column vh-100">
       <ToastContainer position="bottom-center" limit={1} />
@@ -62,7 +63,6 @@ function App() {
               <Nav.Link href="/sell">Sell</Nav.Link>
               <Nav.Link href="/offers">Offers</Nav.Link>
               <Nav.Link href="/auction">Auction</Nav.Link>
-
 
               {/* <Nav.Link href="/categories">Categories</Nav.Link> */}
               <NavDropdown
@@ -88,7 +88,9 @@ function App() {
                   Airbuds
                 </Link>
               </NavDropdown>
-              <Nav.Link className="membershipcolor" href="/membership">Gold Card</Nav.Link>
+              <Nav.Link className="membershipcolor" href="/membership">
+                Gold Card
+              </Nav.Link>
 
               <Nav.Link href="/about_us">About Us</Nav.Link>
             </Nav>
@@ -105,14 +107,14 @@ function App() {
               <div className="dropdown dropdown_search">
                 {sampleProducts
                   .filter((item) => {
-                    const searchTerm = value.toLowerCase()
-                    const fullname = item.name.toLowerCase()
+                    const searchTerm = value.toLowerCase();
+                    const fullname = item.name.toLowerCase();
 
                     return (
                       searchTerm &&
                       fullname.startsWith(searchTerm) &&
                       fullname !== searchTerm
-                    )
+                    );
                   })
                   .map((item) => (
                     <div
@@ -127,7 +129,7 @@ function App() {
                   ))}
               </div>
               {/* console.log("jf");console.log(slugname); */}
-              {/* <Link to={`/product/${slugname}`}> */}{' '}
+              {/* <Link to={`/product/${slugname}`}> */}{" "}
               <Button variant="dark" onClick={() => onSearch(value)}>
                 Search
               </Button>
@@ -137,8 +139,7 @@ function App() {
 
           <Nav>
             <Link to="/cart" className="nav-link">
-              Cart
-              /Wishlist
+              Cart /Wishlist
               {cart.cartItems.length > 0 && (
                 <Badge pill bg="danger">
                   {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
@@ -154,6 +155,12 @@ function App() {
                 {/* { <LinkContainer to="/orderhistory">
                  <NavDropdown.Item>Order History</NavDropdown.Item>
                </LinkContainer> } */}
+
+                {isAdmin && (
+                  <Link className="dropdown-item" to="/addbid">
+                    Add Bid
+                  </Link>
+                )}
 
                 <Link className="dropdown-item" to="/orderhistory">
                   Order History
@@ -187,7 +194,7 @@ function App() {
 
       <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
